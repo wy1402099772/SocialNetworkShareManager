@@ -1,0 +1,15 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'SocialNetworkShareManager' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for SocialNetworkShareManager
+  pod 'Masonry', '1.0.2'
+  pod 'Bolts', '~> 1.8.3'
+  pod 'FBSDKCoreKit', '4.21.0'
+  pod 'FBSDKLoginKit', '4.21.0'
+  pod 'FBSDKShareKit', '4.21.0'
+  pod 'FBAudienceNetwork', '4.21.0'
+end
