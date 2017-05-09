@@ -12,8 +12,8 @@
 
 @implementation SocialNetworkShareAlbumUtil
 
-+ (void)configAlbumsWithName:(NSString *)albumName {
-    [self createPhotoAlbum:albumName completion:nil];
++ (void)configAlbumsWithName:(NSString *)albumName completion:(void (^)(BOOL, NSError *))block {
+    [self createPhotoAlbum:albumName completion:block];
 }
 
 + (void)saveImage:(id)image toAlbum:(NSString *)name completion:(void (^)(BOOL))block {

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SocialNetworkShareManager.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
+    [button addTarget:self action:@selector(presentAction) forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"test" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [self.view addSubview:button];
 }
 
 
@@ -25,5 +33,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)presentAction {
+    [[SocialNetworkShareManager sharedInstance] shareImage:[UIImage imageNamed:@"image_comment_banner"]
+                                                   caption:@"caption"
+                                               description:@"desc"
+                                                      type:SNSTypeInstagram
+                                           andAssociatedVC:self];
+}
 
 @end

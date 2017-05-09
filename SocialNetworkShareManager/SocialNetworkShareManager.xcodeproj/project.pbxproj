@@ -19,6 +19,8 @@
 		939ADDBD1EC1F294009EE88C /* SocialNetworkShareInstagramTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDBC1EC1F294009EE88C /* SocialNetworkShareInstagramTask.m */; };
 		939ADDC81EC1F71E009EE88C /* SocialNetworkShareAlbumUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDC71EC1F71E009EE88C /* SocialNetworkShareAlbumUtil.m */; };
 		939ADDCA1EC1F83D009EE88C /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939ADDC91EC1F83D009EE88C /* Photos.framework */; };
+		939ADDD01EC201FB009EE88C /* image_comment_banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 939ADDCE1EC201FB009EE88C /* image_comment_banner@2x.png */; };
+		939ADDD11EC201FB009EE88C /* image_comment_banner@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 939ADDCF1EC201FB009EE88C /* image_comment_banner@3x.png */; };
 		F8DB8D45CCC3A4231C24B3DB /* libPods-SocialNetworkShareManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE8C35131D491847DC6B995D /* libPods-SocialNetworkShareManager.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,8 @@
 		939ADDC61EC1F71E009EE88C /* SocialNetworkShareAlbumUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkShareAlbumUtil.h; sourceTree = "<group>"; };
 		939ADDC71EC1F71E009EE88C /* SocialNetworkShareAlbumUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkShareAlbumUtil.m; sourceTree = "<group>"; };
 		939ADDC91EC1F83D009EE88C /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		939ADDCE1EC201FB009EE88C /* image_comment_banner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_comment_banner@2x.png"; sourceTree = "<group>"; };
+		939ADDCF1EC201FB009EE88C /* image_comment_banner@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_comment_banner@3x.png"; sourceTree = "<group>"; };
 		9B881E4FDDF5B02C50C02431 /* Pods-SocialNetworkShareManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkShareManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworkShareManager/Pods-SocialNetworkShareManager.release.xcconfig"; sourceTree = "<group>"; };
 		CF296A946A124267754EB186 /* Pods-SocialNetworkShareManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkShareManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworkShareManager/Pods-SocialNetworkShareManager.debug.xcconfig"; sourceTree = "<group>"; };
 		DE8C35131D491847DC6B995D /* libPods-SocialNetworkShareManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialNetworkShareManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +102,8 @@
 				939ADD911EC1CE08009EE88C /* AppDelegate.m */,
 				939ADD931EC1CE08009EE88C /* ViewController.h */,
 				939ADD941EC1CE08009EE88C /* ViewController.m */,
+				939ADDCE1EC201FB009EE88C /* image_comment_banner@2x.png */,
+				939ADDCF1EC201FB009EE88C /* image_comment_banner@3x.png */,
 				939ADD961EC1CE08009EE88C /* Main.storyboard */,
 				939ADD991EC1CE08009EE88C /* Assets.xcassets */,
 				939ADD9B1EC1CE08009EE88C /* LaunchScreen.storyboard */,
@@ -219,7 +225,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				939ADD9D1EC1CE08009EE88C /* LaunchScreen.storyboard in Resources */,
+				939ADDD11EC201FB009EE88C /* image_comment_banner@3x.png in Resources */,
 				939ADDAC1EC1D36D009EE88C /* SocialNetworkShare.bundle in Resources */,
+				939ADDD01EC201FB009EE88C /* image_comment_banner@2x.png in Resources */,
 				939ADD9A1EC1CE08009EE88C /* Assets.xcassets in Resources */,
 				939ADD981EC1CE08009EE88C /* Main.storyboard in Resources */,
 			);

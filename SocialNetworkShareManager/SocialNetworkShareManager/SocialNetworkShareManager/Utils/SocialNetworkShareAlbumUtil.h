@@ -11,7 +11,7 @@
 
 @interface SocialNetworkShareAlbumUtil : NSObject
 
-+ (void)configAlbumsWithName:(NSString *)albumName;
++ (void)configAlbumsWithName:(NSString *)albumName completion:(void(^)(BOOL success, NSError *error))block;
 
 + (void)saveImage:(UIImage *)image toAlbum:(NSString *)name completion:(void (^)(BOOL))block;
 

@@ -28,11 +28,11 @@ typedef void(^SNSCompletion)(BOOL success, NSError *error);
 
 #undef	SNS_AS_SINGLETON
 #define SNS_AS_SINGLETON( __class ) \
-+ (__class *)pins_sharedInstance;
++ (__class *)sharedInstance;
 
 #undef	SNS_DEF_SINGLETON
 #define SNS_DEF_SINGLETON( __class ) \
-+ (__class *)pins_sharedInstance \
++ (__class *)sharedInstance \
 { \
 static dispatch_once_t once; \
 static __class * __singleton__; \

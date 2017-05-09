@@ -31,7 +31,22 @@
 }
 
 - (void)shareImage:(id)image caption:(NSString *)caption description:(NSString *)description type:(id)shareType albumName:(NSString *)albumName andAssociatedVC:(UIViewController *)controller {
-    [SocialNetworkShareAlbumUtil configAlbumsWithName:albumName];
+    [SocialNetworkShareAlbumUtil configAlbumsWithName:albumName completion:^(BOOL success, NSError *error) {
+        if(success) {
+            [SocialNetworkShareAlbumUtil saveImage:image toAlbum:albumName completion:^(BOOL saveflag) {
+                if(saveflag) {
+                    NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://app"]];
+                    [[UIApplication sharedApplication] openURL:instagramURL];
+                } else {
+                    
+                }
+            }];
+        } else {
+            
+        }
+    }];
+    
+    
 }
 
 @end
