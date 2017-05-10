@@ -21,6 +21,7 @@ extern SocialNetworkShareType SNSTypeIMessage;
 extern SocialNetworkShareType SNSTypeEmail;
 extern SocialNetworkShareType SNSTypeLine;
 extern SocialNetworkShareType SNSTypeyLinkCopy;
+extern SocialNetworkShareType SNSTypeFacebookInApp;
 
 @protocol SocialNetworkShareManagerDelegate <NSObject>
 

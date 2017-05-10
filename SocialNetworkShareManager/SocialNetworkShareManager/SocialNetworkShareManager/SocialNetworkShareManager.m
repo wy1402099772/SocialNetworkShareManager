@@ -10,6 +10,14 @@
 #import "SocialNetworkShareTaskProtocol.h"
 #import "SocialNetworkShareInstagramTask.h"
 #import "SocialNetworkShareFacebookTask.h"
+#import "SocialNetworkShareFacebookInAppTask.h"
+#import "SocialNetworkShareTwitterTask.h"
+#import "SocialNetworkShareWhatsAppTask.h"
+#import "SocialNetworkShareMessagerTask.h"
+#import "SocialNetworkShareIMessageTask.h"
+#import "SocialNetworkShareEmailTask.h"
+#import "SocialNetworkShareLineTask.h"
+#import "SocialNetworkShareCopyLinkTask.h"
 
 SocialNetworkShareType SNSTypeFacebook          = @"SNSTypeFacebook";
 SocialNetworkShareType SNSTypeInstagram         = @"SNSTypeInstagram";
@@ -20,6 +28,7 @@ SocialNetworkShareType SNSTypeIMessage          = @"SNSTypeIMessage";
 SocialNetworkShareType SNSTypeEmail             = @"SNSTypeEmail";
 SocialNetworkShareType SNSTypeLine              = @"SNSTypeLine";
 SocialNetworkShareType SNSTypeyLinkCopy         = @"SNSTypeyLinkCopy";
+SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
 
 @interface SocialNetworkShareManager ()
 
@@ -55,21 +64,21 @@ SNS_DEF_SINGLETON(SocialNetworkShareManager)
         } else if ([shareType isEqualToString:SNSTypeInstagram]) {
             task = [[SocialNetworkShareInstagramTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeTwitter]) {
-            
+            task = [[SocialNetworkShareTwitterTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeMessager]) {
-            
+            task = [[SocialNetworkShareMessagerTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeWhatsApp]) {
-            
+            task = [[SocialNetworkShareWhatsAppTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeIMessage]) {
-            
+            task = [[SocialNetworkShareIMessageTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeEmail]) {
-            
+            task = [[SocialNetworkShareEmailTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeLine]) {
-            
+            task = [[SocialNetworkShareLineTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeyLinkCopy]) {
-            
-        } else {
-            
+            task = [[SocialNetworkShareCopyLinkTask alloc] init];
+        } else if ([shareType isEqualToString:SNSTypeFacebookInApp]) {
+            task = [[SocialNetworkShareFacebookInAppTask alloc] init];
         }
         
         if(task) {
