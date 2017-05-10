@@ -35,9 +35,9 @@
 
 - (void)presentAction {
     [[SocialNetworkShareManager sharedInstance] shareImage:[UIImage imageNamed:@"image_comment_banner"]
-                                                   caption:@"caption"
-                                               description:@"desc"
-                                                      type:SNSTypeTwitter
+                                                   caption:nil
+                                               description:@"hello, word"
+                                                      type:SNSTypeWhatsApp
                                            andAssociatedVC:self];
 }
 
