@@ -28,7 +28,13 @@
     return NO;
 }
 
-- (void)shareImage:(id)image caption:(NSString *)caption description:(NSString *)description type:(id)shareType albumName:(NSString *)albumName andAssociatedVC:(UIViewController *)controller {
+- (void)shareImage:(id)image
+           caption:(NSString *)caption
+       description:(NSString *)description
+              type:(id)shareType
+          shareUrl:(NSURL *)shareURL
+         albumName:(NSString *)albumName
+   andAssociatedVC:(UIViewController *)controller {
     
     
 }

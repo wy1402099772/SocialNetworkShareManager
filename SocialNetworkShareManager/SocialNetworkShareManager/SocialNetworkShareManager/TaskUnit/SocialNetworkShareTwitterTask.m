@@ -8,6 +8,7 @@
 
 #import "SocialNetworkShareTwitterTask.h"
 #import "SocialNetworkShareManager.h"
+#import <Social/Social.h>
 
 @interface SocialNetworkShareTwitterTask ()
 
@@ -28,8 +29,34 @@
     return NO;
 }
 
-- (void)shareImage:(id)image caption:(NSString *)caption description:(NSString *)description type:(id)shareType albumName:(NSString *)albumName andAssociatedVC:(UIViewController *)controller {
+- (void)shareImage:(id)image
+           caption:(NSString *)caption
+       description:(NSString *)description
+              type:(id)shareType
+          shareUrl:(NSURL *)shareURL
+         albumName:(NSString *)albumName
+   andAssociatedVC:(UIViewController *)controller {
     
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        SLComposeViewController *composeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        if (composeViewController) {
+            [composeViewController addImage:image];
+            if(shareURL) {
+                [composeViewController addURL:shareURL];
+            }
+            [composeViewController setInitialText:caption];
+            [composeViewController setCompletionHandler:^(SLComposeViewControllerResult result) {
+                if (result == SLComposeViewControllerResultDone) {
+                    NSLog(@"Posted");
+                } else if (result == SLComposeViewControllerResultCancelled) {
+                    NSLog(@"Post Cancelled");
+                } else {
+                    NSLog(@"Post Failed");
+                }
+            }];
+            [controller presentViewController:composeViewController animated:YES completion:nil];
+        }
+    }
     
 }
 

@@ -21,6 +21,7 @@
            caption:(NSString *)caption
        description:(NSString *)description
               type:(SocialNetworkShareType)shareType
+          shareUrl:(NSURL *)shareURL
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller;
 

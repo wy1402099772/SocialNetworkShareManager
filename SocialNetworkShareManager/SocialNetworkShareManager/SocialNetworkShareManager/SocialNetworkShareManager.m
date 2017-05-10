@@ -46,6 +46,7 @@ SNS_DEF_SINGLETON(SocialNetworkShareManager)
              caption:caption
          description:description
                 type:shareType
+            shareUrl:nil
            albumName:self.albumName
      andAssociatedVC:controller];
 }
