@@ -35,6 +35,8 @@
 		93A8A79E1EC318B20024C694 /* SNSDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A8A79B1EC318B20024C694 /* SNSDropdownView.m */; };
 		93A8A79F1EC318B20024C694 /* UIImage+SNSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A8A79C1EC318B20024C694 /* UIImage+SNSExtension.m */; };
 		93A8A7A31EC31CE50024C694 /* SocialNetworkShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A8A7A21EC31CE50024C694 /* SocialNetworkShareView.m */; };
+		93A8A7B81EC343100024C694 /* SocialNetworkShareCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A8A7B71EC343100024C694 /* SocialNetworkShareCollectionViewCell.m */; };
+		93A8A7BC1EC343EE0024C694 /* SocialNetworkShareCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A8A7BB1EC343EE0024C694 /* SocialNetworkShareCellModel.m */; };
 		F8DB8D45CCC3A4231C24B3DB /* libPods-SocialNetworkShareManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE8C35131D491847DC6B995D /* libPods-SocialNetworkShareManager.a */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,10 @@
 		93A8A79D1EC318B20024C694 /* UIImage+SNSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SNSExtension.h"; sourceTree = "<group>"; };
 		93A8A7A11EC31CE50024C694 /* SocialNetworkShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkShareView.h; sourceTree = "<group>"; };
 		93A8A7A21EC31CE50024C694 /* SocialNetworkShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkShareView.m; sourceTree = "<group>"; };
+		93A8A7B61EC343100024C694 /* SocialNetworkShareCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkShareCollectionViewCell.h; sourceTree = "<group>"; };
+		93A8A7B71EC343100024C694 /* SocialNetworkShareCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkShareCollectionViewCell.m; sourceTree = "<group>"; };
+		93A8A7BA1EC343EE0024C694 /* SocialNetworkShareCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkShareCellModel.h; sourceTree = "<group>"; };
+		93A8A7BB1EC343EE0024C694 /* SocialNetworkShareCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkShareCellModel.m; sourceTree = "<group>"; };
 		9B881E4FDDF5B02C50C02431 /* Pods-SocialNetworkShareManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkShareManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworkShareManager/Pods-SocialNetworkShareManager.release.xcconfig"; sourceTree = "<group>"; };
 		CF296A946A124267754EB186 /* Pods-SocialNetworkShareManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkShareManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworkShareManager/Pods-SocialNetworkShareManager.debug.xcconfig"; sourceTree = "<group>"; };
 		DE8C35131D491847DC6B995D /* libPods-SocialNetworkShareManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialNetworkShareManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +174,7 @@
 		939ADDA41EC1D2C4009EE88C /* SocialNetworkShareManager */ = {
 			isa = PBXGroup;
 			children = (
+				93A8A7B91EC343DB0024C694 /* Model */,
 				93A8A7A01EC31CD50024C694 /* View */,
 				939ADDBE1EC1F4F3009EE88C /* Utils */,
 				939ADDB01EC1E987009EE88C /* TaskUnit */,
@@ -233,8 +240,19 @@
 			children = (
 				93A8A7A11EC31CE50024C694 /* SocialNetworkShareView.h */,
 				93A8A7A21EC31CE50024C694 /* SocialNetworkShareView.m */,
+				93A8A7B61EC343100024C694 /* SocialNetworkShareCollectionViewCell.h */,
+				93A8A7B71EC343100024C694 /* SocialNetworkShareCollectionViewCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		93A8A7B91EC343DB0024C694 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				93A8A7BA1EC343EE0024C694 /* SocialNetworkShareCellModel.h */,
+				93A8A7BB1EC343EE0024C694 /* SocialNetworkShareCellModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D132DFFC7E5E817821986E76 /* Pods */ = {
@@ -374,6 +392,7 @@
 			files = (
 				939ADDD91EC2B65D009EE88C /* SocialNetworkShareFacebookTask.m in Sources */,
 				939ADDE81EC2BBB2009EE88C /* SocialNetworkShareIMessqgeTask.m in Sources */,
+				93A8A7BC1EC343EE0024C694 /* SocialNetworkShareCellModel.m in Sources */,
 				939ADD951EC1CE08009EE88C /* ViewController.m in Sources */,
 				939ADDE51EC2BB95009EE88C /* SocialNetworkShareMessengerTask.m in Sources */,
 				939ADDA71EC1D2DD009EE88C /* SocialNetworkShareManager.m in Sources */,
@@ -384,6 +403,7 @@
 				939ADDBD1EC1F294009EE88C /* SocialNetworkShareInstagramTask.m in Sources */,
 				939ADD8F1EC1CE08009EE88C /* main.m in Sources */,
 				93A8A79F1EC318B20024C694 /* UIImage+SNSExtension.m in Sources */,
+				93A8A7B81EC343100024C694 /* SocialNetworkShareCollectionViewCell.m in Sources */,
 				939ADDDF1EC2BB72009EE88C /* SocialNetworkShareTwitterTask.m in Sources */,
 				939ADDE21EC2BB88009EE88C /* SocialNetworkShareWhatsAppTask.m in Sources */,
 				93A8A79E1EC318B20024C694 /* SNSDropdownView.m in Sources */,

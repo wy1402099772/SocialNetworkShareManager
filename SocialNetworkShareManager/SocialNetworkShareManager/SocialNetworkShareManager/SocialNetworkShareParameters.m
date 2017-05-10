@@ -60,4 +60,48 @@
     return fontLight;
 }
 
++ (NSArray<NSDictionary *> *)getSharePlatformConfig {
+    return @[@{
+                 kSNSTypeKey        : SNSTypeInstagram,
+                 kSNSTitleKey       : @"Instagram",
+                 kSNSImageStrKey    : @""
+                 },
+             @{
+                 kSNSTypeKey        : SNSTypeTwitter,
+                 kSNSTitleKey       : @"Twitter",
+                 kSNSImageStrKey    : @""
+                 },
+             @{
+                 kSNSTypeKey        : SNSTypeFacebook,
+                 kSNSTitleKey       : @"Facebook",
+                 kSNSImageStrKey    : @""
+                 },
+             @{
+                 kSNSTypeKey        : SNSTypeMessenger,
+                 kSNSTitleKey       : @"Messenger",
+                 kSNSImageStrKey    : @""
+                 },
+             @{
+                 kSNSTypeKey        : SNSTypeWhatsApp,
+                 kSNSTitleKey       : @"WhatsApp",
+                 kSNSImageStrKey    : @""
+                 },
+             @{
+                 kSNSTypeKey        : SNSTypeIMessage,
+                 kSNSTitleKey       : @"iMessage",
+                 kSNSImageStrKey    : @""
+                 },
+             @{
+                 kSNSTypeKey        : SNSTypeEmail,
+                 kSNSTitleKey       : @"E-Mail",
+                 kSNSImageStrKey    : @""
+                 },
+             @{
+                 kSNSTypeKey        : SNSTypeyLinkCopy,
+                 kSNSTitleKey       : @"Copy Link",
+                 kSNSImageStrKey    : @""
+                 },
+             ];
+}
+
 @end

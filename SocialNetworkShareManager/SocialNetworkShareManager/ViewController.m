@@ -37,8 +37,9 @@
 //    [[SocialNetworkShareManager sharedInstance] shareImage:[UIImage imageNamed:@"image_comment_banner"]
 //                                                   caption:@"Caption"
 //                                               description:@"hello, word"
-//                                                      type:SNSTypeyLinkCopy
+//                                                      type:SNSTypeFacebook
 //                                           andAssociatedVC:self];
+    [SocialNetworkShareManager sharedInstance].associatedVC = self;
     [[SocialNetworkShareManager sharedInstance] showShareViewWithAssociatedVC:self];
 }
 

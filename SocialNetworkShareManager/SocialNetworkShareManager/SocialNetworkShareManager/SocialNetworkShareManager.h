@@ -30,7 +30,7 @@ extern SocialNetworkShareType SNSTypeFacebookInApp;
 
 @interface SocialNetworkShareManager : NSObject
 
-SNS_AS_SINGLETON(SocialNetworkShareManager)
++ (instancetype)sharedInstance;
 
 - (void)shareImage:(UIImage *)image
            caption:(NSString *)caption
@@ -43,5 +43,6 @@ SNS_AS_SINGLETON(SocialNetworkShareManager)
 - (void)showShareViewWithAssociatedVC:(UIViewController *)controller;
 
 @property (nonatomic, strong) NSString *albumName;
+@property (nonatomic, weak)   UIViewController *associatedVC;
 
 @end

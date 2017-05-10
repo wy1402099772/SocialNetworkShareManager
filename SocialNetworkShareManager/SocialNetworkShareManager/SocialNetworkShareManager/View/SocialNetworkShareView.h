@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class SocialNetworkShareCellModel;
+
+@protocol SocialNetworkShareViewDelegate <NSObject>
+
+- (void)soicalShareViewDidClose;
+- (void)soicalShareViewDidSelectCell:(SocialNetworkShareCellModel *)cellModel;
+
+@end
+
 @interface SocialNetworkShareView : UIView
+
+@property (nonatomic, weak) id<SocialNetworkShareViewDelegate> delegate;
 
 @end

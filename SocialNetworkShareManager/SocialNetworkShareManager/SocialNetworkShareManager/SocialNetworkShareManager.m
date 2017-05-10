@@ -21,6 +21,7 @@
 #import "SocialNetworkShareLineTask.h"
 #import "SocialNetworkShareCopyLinkTask.h"
 #import "SocialNetworkShareView.h"
+#import "SocialNetworkShareCellModel.h"
 
 SocialNetworkShareType SNSTypeFacebook          = @"SNSTypeFacebook";
 SocialNetworkShareType SNSTypeInstagram         = @"SNSTypeInstagram";
@@ -33,7 +34,7 @@ SocialNetworkShareType SNSTypeLine              = @"SNSTypeLine";
 SocialNetworkShareType SNSTypeyLinkCopy         = @"SNSTypeyLinkCopy";
 SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
 
-@interface SocialNetworkShareManager () <SNSDropdownViewDelegate>
+@interface SocialNetworkShareManager () <SNSDropdownViewDelegate, SocialNetworkShareViewDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary<SocialNetworkShareType, NSObject<SocialNetworkShareTaskProtocol> *> *taskDict;
 
@@ -44,7 +45,14 @@ SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
 
 @implementation SocialNetworkShareManager
 
-SNS_DEF_SINGLETON(SocialNetworkShareManager)
++ (instancetype)sharedInstance {
+    static SocialNetworkShareManager *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[SocialNetworkShareManager alloc] init];
+    });
+    return instance;
+}
 
 - (void)shareImage:(UIImage *)image caption:(NSString *)caption description:(NSString *)description type:(SocialNetworkShareType)shareType andAssociatedVC:(UIViewController *)controller {
     NSObject<SocialNetworkShareTaskProtocol> *task = [self getSNSTaskFromShareType:shareType];
@@ -99,6 +107,22 @@ SNS_DEF_SINGLETON(SocialNetworkShareManager)
     return task;
 }
 
+#pragma mark - SocialNetworkShareViewDelegate
+- (void)soicalShareViewDidClose {
+    [self.dropdownView hide];
+}
+
+- (void)soicalShareViewDidSelectCell:(SocialNetworkShareCellModel *)cellModel {
+    [self.dropdownView hide];
+    if(self.associatedVC) {
+        [[SocialNetworkShareManager sharedInstance] shareImage:[UIImage imageNamed:@"image_comment_banner"]
+                                                       caption:@"Caption"
+                                                   description:@"hello, word"
+                                                          type:cellModel.shareType
+                                               andAssociatedVC:self.associatedVC];
+    }
+}
+
 
 #pragma mark - SNSDropdownViewDelegate
 - (void)dropdownViewWillShow:(SNSDropdownView *)dropdownView {
@@ -150,6 +174,7 @@ SNS_DEF_SINGLETON(SocialNetworkShareManager)
 - (SocialNetworkShareView *)shareView {
     if(!_shareView) {
         _shareView = [[SocialNetworkShareView alloc] initWithFrame:CGRectMake(0, 0, SNS_SCREEN_WIDTH, SNS_SCREENAPPLYHEIGHT(kSocialShareViewheight))];
+        _shareView.delegate = self;
     }
     return _shareView;
 }

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "SocialNetworkShareManager.h"
 
 typedef void(^SNSCompletion)(BOOL success, NSError *error);
 
@@ -28,32 +29,16 @@ typedef void(^SNSCompletion)(BOOL success, NSError *error);
 #define SNS_UIColorFromRGBA(r,g,b,a)            [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 #define SNS_UIColorFromRGB(r,g,b)               SNS_UIColorFromRGBA(r,g,b,1.0)
 
-#undef	SNS_AS_SINGLETON
-#define SNS_AS_SINGLETON( __class ) \
-+ (__class *)sharedInstance;
-
-#undef	SNS_DEF_SINGLETON
-#define SNS_DEF_SINGLETON( __class ) \
-+ (__class *)sharedInstance \
-{ \
-static dispatch_once_t once; \
-static __class * __singleton__; \
-dispatch_once(&once, ^{ __singleton__ = [[__class alloc] init]; } ); \
-return __singleton__; \
-} \
-- (id)init \
-{ \
-if (self = [super init] ) \
-{ \
-\
-} \
-return self; \
-}
+#define kSNSTypeKey         @"type"
+#define kSNSImageStrKey     @"imageName"
+#define kSNSTitleKey        @"title"
 
 @interface SocialNetworkShareParameters : NSObject
 
 + (UIFont*)getFontRegular:(CGFloat)fontSize;
 + (UIFont*)getFontHeavy:(CGFloat)fontSize;
 + (UIFont *)getFontLight:(CGFloat)fontSize;
+
++ (NSArray<NSDictionary *> *)getSharePlatformConfig;
 
 @end
