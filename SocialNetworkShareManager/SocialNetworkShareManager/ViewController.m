@@ -35,9 +35,9 @@
 
 - (void)presentAction {
     [[SocialNetworkShareManager sharedInstance] shareImage:[UIImage imageNamed:@"image_comment_banner"]
-                                                   caption:nil
+                                                   caption:@"Caption"
                                                description:@"hello, word"
-                                                      type:SNSTypeIMessage
+                                                      type:SNSTypeEmail
                                            andAssociatedVC:self];
 }
 

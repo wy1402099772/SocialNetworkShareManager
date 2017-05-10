@@ -8,8 +8,9 @@
 
 #import "SocialNetworkShareEmailTask.h"
 #import "SocialNetworkShareManager.h"
+#import <MessageUI/MessageUI.h>
 
-@interface SocialNetworkShareEmailTask ()
+@interface SocialNetworkShareEmailTask () <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, assign) SocialNetworkShareType shareType;
 
@@ -36,7 +37,29 @@
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller {
     
-    
+    MFMailComposeViewController *comp = [[MFMailComposeViewController alloc]init];
+    [comp setMailComposeDelegate:self];
+    if ([MFMailComposeViewController canSendMail])
+    {
+        if(caption) {
+            [comp setSubject:caption];
+        }
+        if(description) {
+            [comp setMessageBody:description isHTML:NO];
+        }
+        
+        if (comp)
+        {
+            [controller presentViewController:comp animated:YES completion:nil];
+        }
+    }
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
