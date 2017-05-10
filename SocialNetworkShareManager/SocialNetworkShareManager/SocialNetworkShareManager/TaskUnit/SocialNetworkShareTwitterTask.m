@@ -44,7 +44,7 @@
             if(shareURL) {
                 [composeViewController addURL:shareURL];
             }
-            [composeViewController setInitialText:caption];
+            [composeViewController setInitialText:description];
             [composeViewController setCompletionHandler:^(SLComposeViewControllerResult result) {
                 if (result == SLComposeViewControllerResultDone) {
                     NSLog(@"Posted");

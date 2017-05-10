@@ -36,7 +36,10 @@
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller {
     
-    
+    if(description) {
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        [pasteboard setString:description];
+    }
 }
 
 @end
