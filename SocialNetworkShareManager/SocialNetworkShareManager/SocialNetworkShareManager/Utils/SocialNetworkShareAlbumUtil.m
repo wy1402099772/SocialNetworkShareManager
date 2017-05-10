@@ -24,6 +24,14 @@
     }];
 }
 
++ (NSURL *)getLastAssetURL {
+    PHFetchOptions *fetchOptions = [[PHFetchOptions alloc] init];
+    fetchOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
+    PHFetchResult *fetchResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:fetchOptions];
+    PHAsset *lastAsset = [fetchResult lastObject];
+    return [NSURL URLWithString:lastAsset.localIdentifier];
+}
+
 
 #pragma mark - Private
 + (void)createPhotoAlbum:(NSString *)albumName completion:(void(^)(BOOL success, NSError *error))completion

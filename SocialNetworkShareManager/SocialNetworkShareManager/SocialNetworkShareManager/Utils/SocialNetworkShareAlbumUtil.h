@@ -15,4 +15,6 @@
 
 + (void)saveImage:(UIImage *)image toAlbum:(NSString *)name completion:(void (^)(BOOL))block;
 
++ (NSURL *)getLastAssetURL;
+
 @end

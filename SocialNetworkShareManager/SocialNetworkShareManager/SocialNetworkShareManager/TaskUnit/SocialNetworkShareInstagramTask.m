@@ -35,7 +35,7 @@
         if(success) {
             [SocialNetworkShareAlbumUtil saveImage:image toAlbum:albumName completion:^(BOOL saveflag) {
                 if(saveflag) {
-                    NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://app"]];
+                    NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@",[[[SocialNetworkShareAlbumUtil getLastAssetURL] absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
                     [[UIApplication sharedApplication] openURL:instagramURL];
                 } else {
                     
