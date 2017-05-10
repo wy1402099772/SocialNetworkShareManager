@@ -17,7 +17,7 @@ extern SocialNetworkShareType SNSTypeInstagram;
 extern SocialNetworkShareType SNSTypeTwitter;
 extern SocialNetworkShareType SNSTypeMessenger;
 extern SocialNetworkShareType SNSTypeWhatsApp;
-extern SocialNetworkShareType SNSTypeIMessenge;
+extern SocialNetworkShareType SNSTypeIMessage;
 extern SocialNetworkShareType SNSTypeEmail;
 extern SocialNetworkShareType SNSTypeLine;
 extern SocialNetworkShareType SNSTypeyLinkCopy;

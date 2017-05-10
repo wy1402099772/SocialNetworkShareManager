@@ -14,7 +14,7 @@
 #import "SocialNetworkShareTwitterTask.h"
 #import "SocialNetworkShareWhatsAppTask.h"
 #import "SocialNetworkShareMessengerTask.h"
-#import "SocialNetworkShareIMessengeTask.h"
+#import "SocialNetworkShareIMessqgeTask.h"
 #import "SocialNetworkShareEmailTask.h"
 #import "SocialNetworkShareLineTask.h"
 #import "SocialNetworkShareCopyLinkTask.h"
@@ -24,7 +24,7 @@ SocialNetworkShareType SNSTypeInstagram         = @"SNSTypeInstagram";
 SocialNetworkShareType SNSTypeTwitter           = @"SNSTypeTwitter";
 SocialNetworkShareType SNSTypeMessenger         = @"SNSTypeMessenger";
 SocialNetworkShareType SNSTypeWhatsApp          = @"SNSTypeWhatsApp";
-SocialNetworkShareType SNSTypeIMessenge         = @"SNSTypeIMessenge";
+SocialNetworkShareType SNSTypeIMessage          = @"SNSTypeIMessage";
 SocialNetworkShareType SNSTypeEmail             = @"SNSTypeEmail";
 SocialNetworkShareType SNSTypeLine              = @"SNSTypeLine";
 SocialNetworkShareType SNSTypeyLinkCopy         = @"SNSTypeyLinkCopy";
@@ -70,8 +70,8 @@ SNS_DEF_SINGLETON(SocialNetworkShareManager)
             task = [[SocialNetworkShareMessengerTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeWhatsApp]) {
             task = [[SocialNetworkShareWhatsAppTask alloc] init];
-        } else if ([shareType isEqualToString:SNSTypeIMessenge]) {
-            task = [[SocialNetworkShareIMessengeTask alloc] init];
+        } else if ([shareType isEqualToString:SNSTypeIMessage]) {
+            task = [[SocialNetworkShareIMessqgeTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeEmail]) {
             task = [[SocialNetworkShareEmailTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeLine]) {

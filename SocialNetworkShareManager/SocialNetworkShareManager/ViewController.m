@@ -37,7 +37,7 @@
     [[SocialNetworkShareManager sharedInstance] shareImage:[UIImage imageNamed:@"image_comment_banner"]
                                                    caption:nil
                                                description:@"hello, word"
-                                                      type:SNSTypeMessenger
+                                                      type:SNSTypeIMessage
                                            andAssociatedVC:self];
 }
 
