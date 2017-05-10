@@ -34,11 +34,12 @@
 }
 
 - (void)presentAction {
-    [[SocialNetworkShareManager sharedInstance] shareImage:[UIImage imageNamed:@"image_comment_banner"]
-                                                   caption:@"Caption"
-                                               description:@"hello, word"
-                                                      type:SNSTypeyLinkCopy
-                                           andAssociatedVC:self];
+//    [[SocialNetworkShareManager sharedInstance] shareImage:[UIImage imageNamed:@"image_comment_banner"]
+//                                                   caption:@"Caption"
+//                                               description:@"hello, word"
+//                                                      type:SNSTypeyLinkCopy
+//                                           andAssociatedVC:self];
+    [[SocialNetworkShareManager sharedInstance] showShareViewWithAssociatedVC:self];
 }
 
 @end

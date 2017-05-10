@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "SocialNetworkShareParameters.h"
 
+
 typedef NSString* SocialNetworkShareType;
 
 extern SocialNetworkShareType SNSTypeFacebook;
@@ -38,6 +39,8 @@ SNS_AS_SINGLETON(SocialNetworkShareManager)
    andAssociatedVC:(UIViewController *)controller;
 
 - (BOOL)willShareCallback:(SocialNetworkShareType)shareType;
+
+- (void)showShareViewWithAssociatedVC:(UIViewController *)controller;
 
 @property (nonatomic, strong) NSString *albumName;
 

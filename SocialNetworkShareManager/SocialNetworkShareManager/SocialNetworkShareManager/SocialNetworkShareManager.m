@@ -7,6 +7,8 @@
 //
 
 #import "SocialNetworkShareManager.h"
+#import "SNSDropdownView.h"
+
 #import "SocialNetworkShareTaskProtocol.h"
 #import "SocialNetworkShareInstagramTask.h"
 #import "SocialNetworkShareFacebookTask.h"
@@ -18,6 +20,7 @@
 #import "SocialNetworkShareEmailTask.h"
 #import "SocialNetworkShareLineTask.h"
 #import "SocialNetworkShareCopyLinkTask.h"
+#import "SocialNetworkShareView.h"
 
 SocialNetworkShareType SNSTypeFacebook          = @"SNSTypeFacebook";
 SocialNetworkShareType SNSTypeInstagram         = @"SNSTypeInstagram";
@@ -30,9 +33,12 @@ SocialNetworkShareType SNSTypeLine              = @"SNSTypeLine";
 SocialNetworkShareType SNSTypeyLinkCopy         = @"SNSTypeyLinkCopy";
 SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
 
-@interface SocialNetworkShareManager ()
+@interface SocialNetworkShareManager () <SNSDropdownViewDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary<SocialNetworkShareType, NSObject<SocialNetworkShareTaskProtocol> *> *taskDict;
+
+@property (nonatomic, strong) SNSDropdownView *dropdownView;
+@property (nonatomic, strong) SocialNetworkShareView *shareView;
 
 @end
 
@@ -54,6 +60,10 @@ SNS_DEF_SINGLETON(SocialNetworkShareManager)
 - (BOOL)willShareCallback:(SocialNetworkShareType)shareType {
     NSObject<SocialNetworkShareTaskProtocol> *task = [self getSNSTaskFromShareType:shareType];
     return [task willCallbackWhenShareStop];
+}
+
+- (void)showShareViewWithAssociatedVC:(UIViewController *)controller {
+    [self.dropdownView showInView:controller.view withContentView:self.shareView atOrigin:CGPointMake(0, controller.view.bounds.size.height - SNS_SCREENAPPLYHEIGHT(kSocialShareViewheight))];
 }
 
 #pragma mark - Private
@@ -89,6 +99,25 @@ SNS_DEF_SINGLETON(SocialNetworkShareManager)
     return task;
 }
 
+
+#pragma mark - SNSDropdownViewDelegate
+- (void)dropdownViewWillShow:(SNSDropdownView *)dropdownView {
+    
+}
+
+- (void)dropdownViewDidShow:(SNSDropdownView *)dropdownView {
+    
+}
+
+- (void)dropdownViewWillHide:(SNSDropdownView *)dropdownView {
+    
+}
+
+- (void)dropdownViewDidHide:(SNSDropdownView *)dropdownView {
+    
+}
+
+
 #pragma mark - Getter
 - (NSMutableDictionary<SocialNetworkShareType,NSObject<SocialNetworkShareTaskProtocol> *> *)taskDict {
     if(!_taskDict) {
@@ -104,5 +133,26 @@ SNS_DEF_SINGLETON(SocialNetworkShareManager)
         return _albumName;
     }
 }
+
+- (SNSDropdownView *)dropdownView {
+    if (!_dropdownView) {
+        _dropdownView = [SNSDropdownView dropdownView];
+        _dropdownView.delegate = self;
+        _dropdownView.closedScale = 1;
+        _dropdownView.blurRadius = 0;
+        _dropdownView.animationBounceHeight = 0;
+        _dropdownView.blackMaskAlpha = 0.4;
+        _dropdownView.direction = SNSDropdownViewDirectionBottom;
+    }
+    return _dropdownView;
+}
+
+- (SocialNetworkShareView *)shareView {
+    if(!_shareView) {
+        _shareView = [[SocialNetworkShareView alloc] initWithFrame:CGRectMake(0, 0, SNS_SCREEN_WIDTH, SNS_SCREENAPPLYHEIGHT(kSocialShareViewheight))];
+    }
+    return _shareView;
+}
+
 
 @end
