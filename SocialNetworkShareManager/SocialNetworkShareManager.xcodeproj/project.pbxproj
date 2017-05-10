@@ -25,8 +25,8 @@
 		939ADDDC1EC2BB52009EE88C /* SocialNetworkShareFacebookInAppTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDDB1EC2BB52009EE88C /* SocialNetworkShareFacebookInAppTask.m */; };
 		939ADDDF1EC2BB72009EE88C /* SocialNetworkShareTwitterTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDDE1EC2BB72009EE88C /* SocialNetworkShareTwitterTask.m */; };
 		939ADDE21EC2BB88009EE88C /* SocialNetworkShareWhatsAppTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDE11EC2BB88009EE88C /* SocialNetworkShareWhatsAppTask.m */; };
-		939ADDE51EC2BB95009EE88C /* SocialNetworkShareMessagerTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDE41EC2BB95009EE88C /* SocialNetworkShareMessagerTask.m */; };
-		939ADDE81EC2BBB2009EE88C /* SocialNetworkShareIMessageTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDE71EC2BBB2009EE88C /* SocialNetworkShareIMessageTask.m */; };
+		939ADDE51EC2BB95009EE88C /* SocialNetworkShareMessengerTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDE41EC2BB95009EE88C /* SocialNetworkShareMessengerTask.m */; };
+		939ADDE81EC2BBB2009EE88C /* SocialNetworkShareIMessengeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDE71EC2BBB2009EE88C /* SocialNetworkShareIMessengeTask.m */; };
 		939ADDEB1EC2BBC0009EE88C /* SocialNetworkShareEmailTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDEA1EC2BBC0009EE88C /* SocialNetworkShareEmailTask.m */; };
 		939ADDEE1EC2BBCC009EE88C /* SocialNetworkShareLineTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDED1EC2BBCC009EE88C /* SocialNetworkShareLineTask.m */; };
 		939ADDF11EC2BBDA009EE88C /* SocialNetworkShareCopyLinkTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDF01EC2BBDA009EE88C /* SocialNetworkShareCopyLinkTask.m */; };
@@ -66,10 +66,10 @@
 		939ADDDE1EC2BB72009EE88C /* SocialNetworkShareTwitterTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkShareTwitterTask.m; sourceTree = "<group>"; };
 		939ADDE01EC2BB88009EE88C /* SocialNetworkShareWhatsAppTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkShareWhatsAppTask.h; sourceTree = "<group>"; };
 		939ADDE11EC2BB88009EE88C /* SocialNetworkShareWhatsAppTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkShareWhatsAppTask.m; sourceTree = "<group>"; };
-		939ADDE31EC2BB95009EE88C /* SocialNetworkShareMessagerTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkShareMessagerTask.h; sourceTree = "<group>"; };
-		939ADDE41EC2BB95009EE88C /* SocialNetworkShareMessagerTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkShareMessagerTask.m; sourceTree = "<group>"; };
-		939ADDE61EC2BBB2009EE88C /* SocialNetworkShareIMessageTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkShareIMessageTask.h; sourceTree = "<group>"; };
-		939ADDE71EC2BBB2009EE88C /* SocialNetworkShareIMessageTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkShareIMessageTask.m; sourceTree = "<group>"; };
+		939ADDE31EC2BB95009EE88C /* SocialNetworkShareMessengerTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkShareMessengerTask.h; sourceTree = "<group>"; };
+		939ADDE41EC2BB95009EE88C /* SocialNetworkShareMessengerTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkShareMessengerTask.m; sourceTree = "<group>"; };
+		939ADDE61EC2BBB2009EE88C /* SocialNetworkShareIMessengeTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkShareIMessengeTask.h; sourceTree = "<group>"; };
+		939ADDE71EC2BBB2009EE88C /* SocialNetworkShareIMessengeTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkShareIMessengeTask.m; sourceTree = "<group>"; };
 		939ADDE91EC2BBC0009EE88C /* SocialNetworkShareEmailTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkShareEmailTask.h; sourceTree = "<group>"; };
 		939ADDEA1EC2BBC0009EE88C /* SocialNetworkShareEmailTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkShareEmailTask.m; sourceTree = "<group>"; };
 		939ADDEC1EC2BBCC009EE88C /* SocialNetworkShareLineTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkShareLineTask.h; sourceTree = "<group>"; };
@@ -179,10 +179,10 @@
 				939ADDDE1EC2BB72009EE88C /* SocialNetworkShareTwitterTask.m */,
 				939ADDE01EC2BB88009EE88C /* SocialNetworkShareWhatsAppTask.h */,
 				939ADDE11EC2BB88009EE88C /* SocialNetworkShareWhatsAppTask.m */,
-				939ADDE31EC2BB95009EE88C /* SocialNetworkShareMessagerTask.h */,
-				939ADDE41EC2BB95009EE88C /* SocialNetworkShareMessagerTask.m */,
-				939ADDE61EC2BBB2009EE88C /* SocialNetworkShareIMessageTask.h */,
-				939ADDE71EC2BBB2009EE88C /* SocialNetworkShareIMessageTask.m */,
+				939ADDE31EC2BB95009EE88C /* SocialNetworkShareMessengerTask.h */,
+				939ADDE41EC2BB95009EE88C /* SocialNetworkShareMessengerTask.m */,
+				939ADDE61EC2BBB2009EE88C /* SocialNetworkShareIMessengeTask.h */,
+				939ADDE71EC2BBB2009EE88C /* SocialNetworkShareIMessengeTask.m */,
 				939ADDE91EC2BBC0009EE88C /* SocialNetworkShareEmailTask.h */,
 				939ADDEA1EC2BBC0009EE88C /* SocialNetworkShareEmailTask.m */,
 				939ADDEC1EC2BBCC009EE88C /* SocialNetworkShareLineTask.h */,
@@ -338,9 +338,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				939ADDD91EC2B65D009EE88C /* SocialNetworkShareFacebookTask.m in Sources */,
-				939ADDE81EC2BBB2009EE88C /* SocialNetworkShareIMessageTask.m in Sources */,
+				939ADDE81EC2BBB2009EE88C /* SocialNetworkShareIMessengeTask.m in Sources */,
 				939ADD951EC1CE08009EE88C /* ViewController.m in Sources */,
-				939ADDE51EC2BB95009EE88C /* SocialNetworkShareMessagerTask.m in Sources */,
+				939ADDE51EC2BB95009EE88C /* SocialNetworkShareMessengerTask.m in Sources */,
 				939ADDA71EC1D2DD009EE88C /* SocialNetworkShareManager.m in Sources */,
 				939ADDEB1EC2BBC0009EE88C /* SocialNetworkShareEmailTask.m in Sources */,
 				939ADDEE1EC2BBCC009EE88C /* SocialNetworkShareLineTask.m in Sources */,

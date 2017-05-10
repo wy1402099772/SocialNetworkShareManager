@@ -12,4 +12,5 @@ target 'SocialNetworkShareManager' do
   pod 'FBSDKLoginKit', '4.21.0'
   pod 'FBSDKShareKit', '4.21.0'
   pod 'FBAudienceNetwork', '4.21.0'
+  pod 'FBSDKMessengerShareKit', '1.3.2'
 end

@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "SocialNetworkShareTaskProtocol.h"
 
-@interface SocialNetworkShareMessagerTask : NSObject <SocialNetworkShareTaskProtocol>
+@interface SocialNetworkShareMessengerTask : NSObject <SocialNetworkShareTaskProtocol>
 
 @end

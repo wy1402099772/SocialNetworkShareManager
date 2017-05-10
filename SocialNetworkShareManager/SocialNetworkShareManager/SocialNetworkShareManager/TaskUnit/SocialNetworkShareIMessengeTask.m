@@ -1,25 +1,25 @@
 //
-//  SocialNetworkShareMessagerTask.m
+//  SocialNetworkShareIMessageTask.m
 //  SocialNetworkShareManager
 //
 //  Created by wyan assert on 10/05/2017.
 //  Copyright © 2017 wyan assert. All rights reserved.
 //
 
-#import "SocialNetworkShareMessagerTask.h"
+#import "SocialNetworkShareIMessengeTask.h"
 #import "SocialNetworkShareManager.h"
 
-@interface SocialNetworkShareMessagerTask ()
+@interface SocialNetworkShareIMessengeTask ()
 
 @property (nonatomic, assign) SocialNetworkShareType shareType;
 
 @end
 
-@implementation SocialNetworkShareMessagerTask
+@implementation SocialNetworkShareIMessengeTask
 
 - (instancetype)init {
     if(self = [super init]) {
-        _shareType = SNSTypeMessager;
+        _shareType = SNSTypeIMessenge;
     }
     return self;
 }

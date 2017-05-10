@@ -1,25 +1,26 @@
 //
-//  SocialNetworkShareIMessageTask.m
+//  SocialNetworkShareMessagerTask.m
 //  SocialNetworkShareManager
 //
 //  Created by wyan assert on 10/05/2017.
 //  Copyright © 2017 wyan assert. All rights reserved.
 //
 
-#import "SocialNetworkShareIMessageTask.h"
+#import "SocialNetworkShareMessengerTask.h"
 #import "SocialNetworkShareManager.h"
+#import <FBSDKMessengerShareKit/FBSDKMessengerShareKit.h>
 
-@interface SocialNetworkShareIMessageTask ()
+@interface SocialNetworkShareMessengerTask ()
 
 @property (nonatomic, assign) SocialNetworkShareType shareType;
 
 @end
 
-@implementation SocialNetworkShareIMessageTask
+@implementation SocialNetworkShareMessengerTask
 
 - (instancetype)init {
     if(self = [super init]) {
-        _shareType = SNSTypeIMessage;
+        _shareType = SNSTypeMessenger;
     }
     return self;
 }
@@ -36,7 +37,7 @@
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller {
     
-    
+    [FBSDKMessengerSharer shareImage:image withOptions:nil];
 }
 
 @end
