@@ -41,7 +41,7 @@
         MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
         messageController.messageComposeDelegate = self;
         [messageController setBody:description];
-        if([MFMessageComposeViewController canSendAttachments]) {
+        if([MFMessageComposeViewController canSendAttachments] && image) {
             NSData *imgData = UIImagePNGRepresentation(image);
             [messageController addAttachmentData:imgData typeIdentifier:@"public.data" filename:@"image.png"];
         }

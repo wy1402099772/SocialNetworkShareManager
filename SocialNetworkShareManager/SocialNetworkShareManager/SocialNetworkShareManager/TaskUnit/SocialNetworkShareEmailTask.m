@@ -47,6 +47,11 @@
         if(description) {
             [comp setMessageBody:description isHTML:NO];
         }
+        if(image) {
+            NSData *imageData = UIImageJPEGRepresentation(image, 1);
+            NSString *fileName = [@"share" stringByAppendingPathExtension:@"jpeg"];
+            [comp addAttachmentData:imageData mimeType:@"image/jpeg" fileName:fileName];
+        }
         
         if (comp)
         {
