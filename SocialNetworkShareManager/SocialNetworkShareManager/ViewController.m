@@ -37,7 +37,7 @@
     [[SocialNetworkShareManager sharedInstance] shareImage:[UIImage imageNamed:@"image_comment_banner"]
                                                    caption:@"caption"
                                                description:@"desc"
-                                                      type:SNSTypeInstagram
+                                                      type:SNSTypeFacebook
                                            andAssociatedVC:self];
 }
 

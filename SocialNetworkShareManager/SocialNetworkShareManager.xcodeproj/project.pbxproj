@@ -21,6 +21,7 @@
 		939ADDCA1EC1F83D009EE88C /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939ADDC91EC1F83D009EE88C /* Photos.framework */; };
 		939ADDD01EC201FB009EE88C /* image_comment_banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 939ADDCE1EC201FB009EE88C /* image_comment_banner@2x.png */; };
 		939ADDD11EC201FB009EE88C /* image_comment_banner@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 939ADDCF1EC201FB009EE88C /* image_comment_banner@3x.png */; };
+		939ADDD91EC2B65D009EE88C /* SocialNetworkShareFacebookTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDD81EC2B65D009EE88C /* SocialNetworkShareFacebookTask.m */; };
 		F8DB8D45CCC3A4231C24B3DB /* libPods-SocialNetworkShareManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE8C35131D491847DC6B995D /* libPods-SocialNetworkShareManager.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,8 @@
 		939ADDC91EC1F83D009EE88C /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		939ADDCE1EC201FB009EE88C /* image_comment_banner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_comment_banner@2x.png"; sourceTree = "<group>"; };
 		939ADDCF1EC201FB009EE88C /* image_comment_banner@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_comment_banner@3x.png"; sourceTree = "<group>"; };
+		939ADDD71EC2B65D009EE88C /* SocialNetworkShareFacebookTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkShareFacebookTask.h; sourceTree = "<group>"; };
+		939ADDD81EC2B65D009EE88C /* SocialNetworkShareFacebookTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkShareFacebookTask.m; sourceTree = "<group>"; };
 		9B881E4FDDF5B02C50C02431 /* Pods-SocialNetworkShareManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkShareManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworkShareManager/Pods-SocialNetworkShareManager.release.xcconfig"; sourceTree = "<group>"; };
 		CF296A946A124267754EB186 /* Pods-SocialNetworkShareManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkShareManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworkShareManager/Pods-SocialNetworkShareManager.debug.xcconfig"; sourceTree = "<group>"; };
 		DE8C35131D491847DC6B995D /* libPods-SocialNetworkShareManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialNetworkShareManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +143,8 @@
 				939ADDBA1EC1EE0A009EE88C /* SocialNetworkShareTaskProtocol.h */,
 				939ADDBB1EC1F294009EE88C /* SocialNetworkShareInstagramTask.h */,
 				939ADDBC1EC1F294009EE88C /* SocialNetworkShareInstagramTask.m */,
+				939ADDD71EC2B65D009EE88C /* SocialNetworkShareFacebookTask.h */,
+				939ADDD81EC2B65D009EE88C /* SocialNetworkShareFacebookTask.m */,
 			);
 			path = TaskUnit;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				939ADDD91EC2B65D009EE88C /* SocialNetworkShareFacebookTask.m in Sources */,
 				939ADD951EC1CE08009EE88C /* ViewController.m in Sources */,
 				939ADDA71EC1D2DD009EE88C /* SocialNetworkShareManager.m in Sources */,
 				939ADD921EC1CE08009EE88C /* AppDelegate.m in Sources */,

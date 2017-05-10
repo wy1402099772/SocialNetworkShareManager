@@ -9,8 +9,9 @@
 #import "SocialNetworkShareManager.h"
 #import "SocialNetworkShareTaskProtocol.h"
 #import "SocialNetworkShareInstagramTask.h"
+#import "SocialNetworkShareFacebookTask.h"
 
-SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebook";
+SocialNetworkShareType SNSTypeFacebook          = @"SNSTypeFacebook";
 SocialNetworkShareType SNSTypeInstagram         = @"SNSTypeInstagram";
 SocialNetworkShareType SNSTypeTwitter           = @"SNSTypeTwitter";
 SocialNetworkShareType SNSTypeMessager          = @"SNSTypeMessager";
@@ -49,10 +50,8 @@ SNS_DEF_SINGLETON(SocialNetworkShareManager)
 - (NSObject<SocialNetworkShareTaskProtocol> *)getSNSTaskFromShareType:(SocialNetworkShareType)shareType {
     NSObject<SocialNetworkShareTaskProtocol> *task = [self.taskDict objectForKey:shareType];
     if(!task) {
-        if([shareType isEqualToString:SNSTypeFacebookInApp]) {
-            
-        } else if ([shareType isEqualToString:SNSTypeFacebookInApp]) {
-            
+        if([shareType isEqualToString:SNSTypeFacebook]) {
+            task = [[SocialNetworkShareFacebookTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeInstagram]) {
             task = [[SocialNetworkShareInstagramTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeTwitter]) {

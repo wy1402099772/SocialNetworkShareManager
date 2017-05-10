@@ -13,6 +13,8 @@
 
 @protocol SocialNetworkShareTaskProtocol <NSObject>
 
+- (instancetype)init;
+
 - (BOOL)willCallbackWhenShareStop;
 
 - (void)shareImage:(UIImage *)image
