@@ -13,6 +13,7 @@
 @interface SocialNetworkShareIMessqgeTask () <MFMessageComposeViewControllerDelegate>
 
 @property (nonatomic, assign) SocialNetworkShareType shareType;
+@property (nonatomic, weak) id<SocialNetworkShareTaskDelegate> delegate;
 
 @end
 
@@ -47,6 +48,10 @@
         }
         [controller presentViewController:messageController animated:YES completion:nil];
     }
+}
+
+- (void)associateDelegate:(id<SocialNetworkShareTaskDelegate>)delegate {
+    _delegate = delegate;
 }
 
 #pragma mark - MFMessageComposeViewControllerDelegate

@@ -14,7 +14,7 @@ typedef void(^SNSCompletion)(BOOL success, NSError *error);
 
 #define kSocialAlbumName @"SocialShare"
 
-#define kSocialShareViewheight 167
+#define kSocialShareViewheight 150
 
 #define SNS_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SNS_SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height

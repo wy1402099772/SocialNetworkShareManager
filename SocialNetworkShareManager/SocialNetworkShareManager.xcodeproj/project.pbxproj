@@ -94,6 +94,7 @@
 		93A8A7B71EC343100024C694 /* SocialNetworkShareCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkShareCollectionViewCell.m; sourceTree = "<group>"; };
 		93A8A7BA1EC343EE0024C694 /* SocialNetworkShareCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkShareCellModel.h; sourceTree = "<group>"; };
 		93A8A7BB1EC343EE0024C694 /* SocialNetworkShareCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNetworkShareCellModel.m; sourceTree = "<group>"; };
+		93A8A7C31EC40B9D0024C694 /* SocialNetworkShareTaskDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNetworkShareTaskDelegate.h; sourceTree = "<group>"; };
 		9B881E4FDDF5B02C50C02431 /* Pods-SocialNetworkShareManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkShareManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworkShareManager/Pods-SocialNetworkShareManager.release.xcconfig"; sourceTree = "<group>"; };
 		CF296A946A124267754EB186 /* Pods-SocialNetworkShareManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkShareManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworkShareManager/Pods-SocialNetworkShareManager.debug.xcconfig"; sourceTree = "<group>"; };
 		DE8C35131D491847DC6B995D /* libPods-SocialNetworkShareManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialNetworkShareManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				939ADDBA1EC1EE0A009EE88C /* SocialNetworkShareTaskProtocol.h */,
+				93A8A7C31EC40B9D0024C694 /* SocialNetworkShareTaskDelegate.h */,
 				939ADDBB1EC1F294009EE88C /* SocialNetworkShareInstagramTask.h */,
 				939ADDBC1EC1F294009EE88C /* SocialNetworkShareInstagramTask.m */,
 				939ADDD71EC2B65D009EE88C /* SocialNetworkShareFacebookTask.h */,

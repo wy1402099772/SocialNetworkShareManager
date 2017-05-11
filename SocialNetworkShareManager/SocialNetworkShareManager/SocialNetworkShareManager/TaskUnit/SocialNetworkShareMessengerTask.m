@@ -13,6 +13,7 @@
 @interface SocialNetworkShareMessengerTask ()
 
 @property (nonatomic, assign) SocialNetworkShareType shareType;
+@property (nonatomic, weak) id<SocialNetworkShareTaskDelegate> delegate;
 
 @end
 
@@ -38,6 +39,10 @@
    andAssociatedVC:(UIViewController *)controller {
     
     [FBSDKMessengerSharer shareImage:image withOptions:nil];
+}
+
+- (void)associateDelegate:(id<SocialNetworkShareTaskDelegate>)delegate {
+    _delegate = delegate;
 }
 
 @end

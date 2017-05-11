@@ -13,6 +13,7 @@
 @interface SocialNetworkShareEmailTask () <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, assign) SocialNetworkShareType shareType;
+@property (nonatomic, weak) id<SocialNetworkShareTaskDelegate> delegate;
 
 @end
 
@@ -58,6 +59,10 @@
             [controller presentViewController:comp animated:YES completion:nil];
         }
     }
+}
+
+- (void)associateDelegate:(id<SocialNetworkShareTaskDelegate>)delegate {
+    _delegate = delegate;
 }
 
 #pragma mark - MFMailComposeViewControllerDelegate

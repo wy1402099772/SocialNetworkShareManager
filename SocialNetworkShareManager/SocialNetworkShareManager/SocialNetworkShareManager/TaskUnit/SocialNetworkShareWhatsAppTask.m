@@ -12,6 +12,7 @@
 @interface SocialNetworkShareWhatsAppTask ()
 
 @property (nonatomic, assign) SocialNetworkShareType shareType;
+@property (nonatomic, weak) id<SocialNetworkShareTaskDelegate> delegate;
 
 @end
 
@@ -41,6 +42,10 @@
     if ([[UIApplication sharedApplication] canOpenURL: whatsappURL]) {
         [[UIApplication sharedApplication] openURL: whatsappURL];
     }
+}
+
+- (void)associateDelegate:(id<SocialNetworkShareTaskDelegate>)delegate {
+    _delegate = delegate;
 }
 
 @end

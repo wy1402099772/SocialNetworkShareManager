@@ -13,6 +13,7 @@
 @interface SocialNetworkShareFacebookTask () <FBSDKSharingDelegate>
 
 @property (nonatomic, assign) SocialNetworkShareType shareType;
+@property (nonatomic, weak) id<SocialNetworkShareTaskDelegate> delegate;
 
 @end
 
@@ -42,11 +43,16 @@
     photo.userGenerated = YES;
     FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
     content.photos = @[photo];
-    
     [FBSDKShareDialog showFromViewController:controller
                                  withContent:content
                                     delegate:self];
     
+    
+    
+}
+
+- (void)associateDelegate:(id<SocialNetworkShareTaskDelegate>)delegate {
+    _delegate = delegate;
 }
 
 #pragma mark - FBSDKSharingDelegate

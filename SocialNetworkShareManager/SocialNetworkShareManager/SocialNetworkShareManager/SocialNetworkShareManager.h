@@ -26,6 +26,12 @@ extern SocialNetworkShareType SNSTypeFacebookInApp;
 
 @protocol SocialNetworkShareManagerDelegate <NSObject>
 
+- (void)shareManagerRequestToShowAlert:(NSString *)title
+                               message:(NSString *)message
+                           confirmInfo:(NSString *)confirmInfo
+                            cancelInfo:(NSString *)cancelInfo
+                            completion:(void (^)(BOOL))block;
+
 @end
 
 @interface SocialNetworkShareManager : NSObject
@@ -44,5 +50,6 @@ extern SocialNetworkShareType SNSTypeFacebookInApp;
 
 @property (nonatomic, strong) NSString *albumName;
 @property (nonatomic, weak)   UIViewController *associatedVC;
+@property (nonatomic, weak)   id<SocialNetworkShareManagerDelegate> delegate;
 
 @end

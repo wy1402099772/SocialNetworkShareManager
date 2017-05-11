@@ -12,6 +12,7 @@
 @interface SocialNetworkShareCopyLinkTask ()
 
 @property (nonatomic, assign) SocialNetworkShareType shareType;
+@property (nonatomic, weak) id<SocialNetworkShareTaskDelegate> delegate;
 
 @end
 
@@ -39,7 +40,15 @@
     if(description) {
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
         [pasteboard setString:description];
+        if(self.delegate && [self.delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:completion:)]) {
+            [self.delegate requestShareManagerToShowAlert:@"Copy Successfully" message:@"Your link to share has been copied. You can directly paste the link and share with your friends." confirmInfo:@"Sure" cancelInfo:nil completion:nil];
+        }
     }
 }
+
+- (void)associateDelegate:(id<SocialNetworkShareTaskDelegate>)delegate {
+    _delegate = delegate;
+}
+
 
 @end

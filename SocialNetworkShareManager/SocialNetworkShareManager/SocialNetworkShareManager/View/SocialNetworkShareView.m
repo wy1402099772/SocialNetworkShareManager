@@ -41,7 +41,7 @@ static NSString *SocialNetworkShareCollectionViewCellIdentifier = @"SocialNetwor
 
 #pragma mark - Public
 - (void)configureViews {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.95];
     
     [self addSubview:self.closeButton];
     [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -51,7 +51,7 @@ static NSString *SocialNetworkShareCollectionViewCellIdentifier = @"SocialNetwor
     
     [self addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(SNS_SCREENAPPLYHEIGHT(20));
+        make.top.equalTo(self).offset(SNS_SCREENAPPLYHEIGHT(18));
         make.height.mas_equalTo(SNS_SCREENAPPLYHEIGHT(29));
         make.centerX.equalTo(self);
     }];
@@ -153,8 +153,8 @@ static NSString *SocialNetworkShareCollectionViewCellIdentifier = @"SocialNetwor
     if(!_closeButton) {
         _closeButton = [[UIButton alloc] init];
         [_closeButton addTarget:self action:@selector(didSelectCloseAction) forControlEvents:UIControlEventTouchUpInside];
-        [_closeButton setTitle:@"ex" forState:UIControlStateNormal];
-        [_closeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_closeButton setImage:[[UIImage imageWithContentsOfFile:[SNS_RESOUCE_BUNDLE pathForResource:@"image_close@3x" ofType:@"png"]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        [_closeButton.imageView setTintColor:SNS_UIColorFromRGB(216, 216, 216)];
     }
     return _closeButton;
 }

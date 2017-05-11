@@ -13,6 +13,7 @@
 @interface SocialNetworkShareTwitterTask ()
 
 @property (nonatomic, assign) SocialNetworkShareType shareType;
+@property (nonatomic, weak) id<SocialNetworkShareTaskDelegate> delegate;
 
 @end
 
@@ -57,7 +58,10 @@
             [controller presentViewController:composeViewController animated:YES completion:nil];
         }
     }
-    
+}
+
+- (void)associateDelegate:(id<SocialNetworkShareTaskDelegate>)delegate {
+    _delegate = delegate;
 }
 
 @end

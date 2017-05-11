@@ -34,7 +34,7 @@ SocialNetworkShareType SNSTypeLine              = @"SNSTypeLine";
 SocialNetworkShareType SNSTypeyLinkCopy         = @"SNSTypeyLinkCopy";
 SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
 
-@interface SocialNetworkShareManager () <SNSDropdownViewDelegate, SocialNetworkShareViewDelegate>
+@interface SocialNetworkShareManager () <SNSDropdownViewDelegate, SocialNetworkShareViewDelegate, SocialNetworkShareTaskDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary<SocialNetworkShareType, NSObject<SocialNetworkShareTaskProtocol> *> *taskDict;
 
@@ -56,13 +56,16 @@ SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
 
 - (void)shareImage:(UIImage *)image caption:(NSString *)caption description:(NSString *)description type:(SocialNetworkShareType)shareType andAssociatedVC:(UIViewController *)controller {
     NSObject<SocialNetworkShareTaskProtocol> *task = [self getSNSTaskFromShareType:shareType];
-    [task shareImage:image
-             caption:caption
-         description:description
-                type:shareType
-            shareUrl:nil
-           albumName:self.albumName
-     andAssociatedVC:controller];
+    if(task) {
+        [task associateDelegate:self];
+        [task shareImage:image
+                 caption:caption
+             description:description
+                    type:shareType
+                shareUrl:nil
+               albumName:self.albumName
+         andAssociatedVC:controller];
+    }
 }
 
 - (BOOL)willShareCallback:(SocialNetworkShareType)shareType {
@@ -139,6 +142,18 @@ SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
 
 - (void)dropdownViewDidHide:(SNSDropdownView *)dropdownView {
     
+}
+
+
+#pragma mark - SocialNetworkShareTaskDelegate
+- (void)requestShareManagerToShowAlert:(NSString *)title message:(NSString *)message confirmInfo:(NSString *)confirmInfo cancelInfo:(NSString *)cancelInfo completion:(void (^)(BOOL))block {
+    if(self.delegate && [self.delegate respondsToSelector:@selector(shareManagerRequestToShowAlert:message:confirmInfo:cancelInfo:completion:)]) {
+        [self.delegate shareManagerRequestToShowAlert:title message:message confirmInfo:confirmInfo cancelInfo:cancelInfo completion:block];
+    } else {
+        if(block) {
+            block(YES);
+        }
+    }
 }
 
 

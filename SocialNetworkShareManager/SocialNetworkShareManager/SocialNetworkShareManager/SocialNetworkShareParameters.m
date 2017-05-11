@@ -63,43 +63,43 @@
 + (NSArray<NSDictionary *> *)getSharePlatformConfig {
     return @[@{
                  kSNSTypeKey        : SNSTypeInstagram,
-                 kSNSTitleKey       : @"Instagram",
-                 kSNSImageStrKey    : @""
+                 kSNSTitleKey       : @"Instagram\n",
+                 kSNSImageStrKey    : @"image_share_instagram@3x"
                  },
              @{
                  kSNSTypeKey        : SNSTypeTwitter,
-                 kSNSTitleKey       : @"Twitter",
-                 kSNSImageStrKey    : @""
+                 kSNSTitleKey       : @"Twitter\n",
+                 kSNSImageStrKey    : @"image_share_twitter@3x"
                  },
              @{
                  kSNSTypeKey        : SNSTypeFacebook,
-                 kSNSTitleKey       : @"Facebook",
-                 kSNSImageStrKey    : @""
+                 kSNSTitleKey       : @"Facebook\n",
+                 kSNSImageStrKey    : @"image_share_facebook@3x"
                  },
              @{
                  kSNSTypeKey        : SNSTypeMessenger,
-                 kSNSTitleKey       : @"Messenger",
-                 kSNSImageStrKey    : @""
+                 kSNSTitleKey       : @"Messenger\n",
+                 kSNSImageStrKey    : @"image_share_messager@3x"
                  },
              @{
                  kSNSTypeKey        : SNSTypeWhatsApp,
-                 kSNSTitleKey       : @"WhatsApp",
-                 kSNSImageStrKey    : @""
+                 kSNSTitleKey       : @"WhatsApp\n",
+                 kSNSImageStrKey    : @"image_share_whatsapp@3x"
                  },
              @{
                  kSNSTypeKey        : SNSTypeIMessage,
-                 kSNSTitleKey       : @"iMessage",
-                 kSNSImageStrKey    : @""
+                 kSNSTitleKey       : @"iMessage\n",
+                 kSNSImageStrKey    : @"image_share_imessage@3x"
                  },
              @{
                  kSNSTypeKey        : SNSTypeEmail,
-                 kSNSTitleKey       : @"E-Mail",
-                 kSNSImageStrKey    : @""
+                 kSNSTitleKey       : @"E-Mail\n",
+                 kSNSImageStrKey    : @"image_share_email@3x"
                  },
              @{
                  kSNSTypeKey        : SNSTypeyLinkCopy,
-                 kSNSTitleKey       : @"Copy Link",
-                 kSNSImageStrKey    : @""
+                 kSNSTitleKey       : @"Copy Link\n",
+                 kSNSImageStrKey    : @"image_share_copy_link@3x"
                  },
              ];
 }

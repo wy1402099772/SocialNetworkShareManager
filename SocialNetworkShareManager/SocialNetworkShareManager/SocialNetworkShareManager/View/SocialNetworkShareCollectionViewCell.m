@@ -70,7 +70,6 @@
 - (UIImageView *)imageView {
     if(!_imageView) {
         _imageView = [[UIImageView alloc] init];
-        _imageView.backgroundColor = [UIColor grayColor];
         _imageView.layer.cornerRadius = SNS_SCREENAPPLYHEIGHT(22);
         _imageView.layer.masksToBounds = YES;
     }

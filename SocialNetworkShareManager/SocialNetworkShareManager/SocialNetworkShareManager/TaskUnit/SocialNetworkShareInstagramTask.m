@@ -13,6 +13,7 @@
 @interface SocialNetworkShareInstagramTask ()
 
 @property (nonatomic, assign) SocialNetworkShareType shareType;
+@property (nonatomic, weak) id<SocialNetworkShareTaskDelegate> delegate;
 
 @end
 
@@ -41,14 +42,21 @@
         if(success) {
             [SocialNetworkShareAlbumUtil saveImage:image toAlbum:albumName completion:^(BOOL saveflag) {
                 if(saveflag) {
-                    if(description) {
+                    if(description.length) {
                         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
                         [pasteboard setString:description];
                     }
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    if(description.length && self.delegate && [self.delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:completion:)]) {
+                        [self.delegate requestShareManagerToShowAlert:@"Post and tag your photo" message:@"Your link to share has been copied. You can directly paste the link and share with your friends when you send it" confirmInfo:@"Go To Instagram" cancelInfo:nil completion:^(BOOL success) {
+                            if(success) {
+                                NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@",[[[SocialNetworkShareAlbumUtil getLastAssetURL] absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
+                                [[UIApplication sharedApplication] openURL:instagramURL];
+                            }
+                        }];
+                    } else {
                         NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@",[[[SocialNetworkShareAlbumUtil getLastAssetURL] absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
                         [[UIApplication sharedApplication] openURL:instagramURL];
-                    });
+                    }
                 } else {
                     
                 }
@@ -57,8 +65,10 @@
             
         }
     }];
-    
-    
+}
+
+- (void)associateDelegate:(id<SocialNetworkShareTaskDelegate>)delegate {
+    _delegate = delegate;
 }
 
 @end

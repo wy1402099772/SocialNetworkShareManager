@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SocialNetworkShareManager.h"
+#import "SocialNetworkShareTaskDelegate.h"
 
 @class UIImage, UIViewController;
 
@@ -24,5 +25,7 @@
           shareUrl:(NSURL *)shareURL
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller;
+
+- (void)associateDelegate:(id<SocialNetworkShareTaskDelegate>)delegate;
 
 @end
