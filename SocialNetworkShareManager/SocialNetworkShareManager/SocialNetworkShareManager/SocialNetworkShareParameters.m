@@ -73,9 +73,9 @@
                  kSNSDelayKey       : @(0)
                  },
              @{
-                 kSNSTypeKey        : SNSTypeTwitter,
-                 kSNSTitleKey       : @"Twitter\n",
-                 kSNSImageStrKey    : @"image_share_twitter@3x",
+                 kSNSTypeKey        : SNSTypeFacebook,
+                 kSNSTitleKey       : @"Facebook\n",
+                 kSNSImageStrKey    : @"image_share_facebook@3x",
                  kSNSRequestTitleKey: @"",
                  kSNSRequestDescKey : @"",
                  kSNSConfirmKey     : @"",
@@ -83,9 +83,9 @@
                  kSNSDelayKey       : @(0)
                  },
              @{
-                 kSNSTypeKey        : SNSTypeFacebook,
-                 kSNSTitleKey       : @"Facebook\n",
-                 kSNSImageStrKey    : @"image_share_facebook@3x",
+                 kSNSTypeKey        : SNSTypeTwitter,
+                 kSNSTitleKey       : @"Twitter\n",
+                 kSNSImageStrKey    : @"image_share_twitter@3x",
                  kSNSRequestTitleKey: @"",
                  kSNSRequestDescKey : @"",
                  kSNSConfirmKey     : @"",

@@ -109,6 +109,15 @@ static NSString *SocialNetworkShareCollectionViewCellIdentifier = @"SocialNetwor
     return 0;
 }
 
+
+#pragma mark - Setter
+- (void)setCellConfig:(NSArray<NSDictionary *> *)cellConfig {
+    _cellConfig = cellConfig;
+    _cellModelArray = nil;
+    [self.collectionView reloadData];
+}
+
+
 #pragma mark - Getter
 - (UICollectionView *)collectionView {
     if(!_collectionView) {
@@ -129,8 +138,8 @@ static NSString *SocialNetworkShareCollectionViewCellIdentifier = @"SocialNetwor
 
 - (NSArray<SocialNetworkShareCellModel *> *)cellModelArray {
     if(!_cellModelArray) {
-        NSMutableArray *array = [NSMutableArray arrayWithCapacity:[SocialNetworkShareParameters getSharePlatformConfig].count];
-        for (NSDictionary *dict in [SocialNetworkShareParameters getSharePlatformConfig]) {
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.cellConfig.count];
+        for (NSDictionary *dict in self.cellConfig) {
             SocialNetworkShareCellModel *cellModel = [[SocialNetworkShareCellModel alloc] initWitnDict:dict];
             if(cellModel) {
                 [array addObject:cellModel];

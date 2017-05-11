@@ -49,9 +49,12 @@ extern SocialNetworkShareType SNSTypeFacebookInApp;
 - (BOOL)willShareCallback:(SocialNetworkShareType)shareType;
 
 - (void)showShareViewWithAssociatedVC:(UIViewController *)controller;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *desc;
 
 @property (nonatomic, strong) NSString *albumName;
 @property (nonatomic, weak)   UIViewController *associatedVC;
+@property (nonatomic, strong) NSArray<NSDictionary *> *cellConfig;
 @property (nonatomic, weak)   id<SocialNetworkShareManagerDelegate> delegate;
 
 @end

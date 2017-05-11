@@ -20,5 +20,6 @@
 @interface SocialNetworkShareView : UIView
 
 @property (nonatomic, weak) id<SocialNetworkShareViewDelegate> delegate;
+@property (nonatomic, strong) NSArray<NSDictionary *> *cellConfig;
 
 @end

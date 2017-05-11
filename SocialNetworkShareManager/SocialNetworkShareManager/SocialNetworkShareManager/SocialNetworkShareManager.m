@@ -45,6 +45,8 @@ SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
 
 @implementation SocialNetworkShareManager
 
+@synthesize cellConfig = _cellConfig;
+
 + (instancetype)sharedInstance {
     static SocialNetworkShareManager *instance = nil;
     static dispatch_once_t onceToken;
@@ -55,6 +57,7 @@ SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
 }
 
 - (void)shareImage:(UIImage *)image caption:(NSString *)caption description:(NSString *)description model:(SocialNetworkShareCellModel *)shareModel andAssociatedVC:(UIViewController *)controller {
+    self.associatedVC = controller;
     NSObject<SocialNetworkShareTaskProtocol> *task = [self getSNSTaskFromShareType:shareModel.shareType];
     if(task) {
         [task associateDelegate:self];
@@ -119,8 +122,8 @@ SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
     [self.dropdownView hide];
     if(self.associatedVC) {
         [[SocialNetworkShareManager sharedInstance] shareImage:[UIImage imageNamed:@"image_comment_banner"]
-                                                       caption:@"Caption"
-                                                   description:@"hello, word"
+                                                       caption:self.title
+                                                   description:self.desc
                                                           model:cellModel
                                                andAssociatedVC:self.associatedVC];
     }
@@ -162,6 +165,13 @@ SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
 }
 
 
+#pragma mark - Setter
+- (void)setCellConfig:(NSArray<NSDictionary *> *)cellConfig {
+    _cellConfig = cellConfig;
+    self.shareView.cellConfig = cellConfig;
+}
+
+
 #pragma mark - Getter
 - (NSMutableDictionary<SocialNetworkShareType,NSObject<SocialNetworkShareTaskProtocol> *> *)taskDict {
     if(!_taskDict) {
@@ -195,8 +205,16 @@ SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
     if(!_shareView) {
         _shareView = [[SocialNetworkShareView alloc] initWithFrame:CGRectMake(0, 0, SNS_SCREEN_WIDTH, SNS_SCREENAPPLYHEIGHT(kSocialShareViewheight))];
         _shareView.delegate = self;
+        _shareView.cellConfig = self.cellConfig;
     }
     return _shareView;
+}
+
+- (NSArray<NSDictionary *> *)cellConfig {
+    if(!_cellConfig) {
+        _cellConfig = [SocialNetworkShareParameters getSharePlatformConfig];
+    }
+    return _cellConfig;
 }
 
 
