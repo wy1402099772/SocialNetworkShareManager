@@ -34,7 +34,7 @@
 - (void)shareImage:(id)image
            caption:(NSString *)caption
        description:(NSString *)description
-              type:(id)shareType
+             model:(SocialNetworkShareCellModel *)shareModel
           shareUrl:(NSURL *)shareURL
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller {
@@ -46,8 +46,13 @@
                         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
                         [pasteboard setString:description];
                     }
-                    if(description.length && self.delegate && [self.delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:completion:)]) {
-                        [self.delegate requestShareManagerToShowAlert:@"Post and tag your photo" message:@"Your link to share has been copied. You can directly paste the link and share with your friends when you send it" confirmInfo:@"Go To Instagram" cancelInfo:nil completion:^(BOOL success) {
+                    if(description.length && self.delegate && [self.delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:delay:completion:)]) {
+                        [self.delegate requestShareManagerToShowAlert:shareModel.requestTitle
+                                                              message:shareModel.requestDesc
+                                                          confirmInfo:shareModel.confirmStr
+                                                           cancelInfo:shareModel.cancelStr
+                                                                delay:shareModel.delayInterval
+                                                           completion:^(BOOL success) {
                             if(success) {
                                 NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@",[[[SocialNetworkShareAlbumUtil getLastAssetURL] absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
                                 [[UIApplication sharedApplication] openURL:instagramURL];

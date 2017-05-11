@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "SocialNetworkShareParameters.h"
 
+@class SocialNetworkShareCellModel;
 
 typedef NSString* SocialNetworkShareType;
 
@@ -30,6 +31,7 @@ extern SocialNetworkShareType SNSTypeFacebookInApp;
                                message:(NSString *)message
                            confirmInfo:(NSString *)confirmInfo
                             cancelInfo:(NSString *)cancelInfo
+                                 delay:(NSUInteger)delayInterval
                             completion:(void (^)(BOOL))block;
 
 @end
@@ -41,7 +43,7 @@ extern SocialNetworkShareType SNSTypeFacebookInApp;
 - (void)shareImage:(UIImage *)image
            caption:(NSString *)caption
        description:(NSString *)description
-              type:(SocialNetworkShareType)shareType
+             model:(SocialNetworkShareCellModel *)shareModel
    andAssociatedVC:(UIViewController *)controller;
 
 - (BOOL)willShareCallback:(SocialNetworkShareType)shareType;

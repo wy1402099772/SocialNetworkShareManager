@@ -21,6 +21,22 @@
         if([dict objectForKey:kSNSImageStrKey] && [[dict objectForKey:kSNSImageStrKey] isKindOfClass:[NSString class]]) {
             _imageName = [dict objectForKey:kSNSImageStrKey];
         }
+        if([dict objectForKey:kSNSRequestTitleKey] && [[dict objectForKey:kSNSRequestTitleKey] isKindOfClass:[NSString class]]) {
+            _requestTitle = [dict objectForKey:kSNSRequestTitleKey];
+        }
+        if([dict objectForKey:kSNSRequestDescKey] && [[dict objectForKey:kSNSRequestDescKey] isKindOfClass:[NSString class]]) {
+            _requestDesc = [dict objectForKey:kSNSRequestDescKey];
+        }
+        if([dict objectForKey:kSNSConfirmKey] && [[dict objectForKey:kSNSConfirmKey] isKindOfClass:[NSString class]]) {
+            _confirmStr = [dict objectForKey:kSNSConfirmKey];
+        }
+        if([dict objectForKey:kSNSCancelKey] && [[dict objectForKey:kSNSCancelKey] isKindOfClass:[NSString class]]) {
+            _cancelStr = [dict objectForKey:kSNSCancelKey];
+        }
+        if([dict objectForKey:kSNSDelayKey] && [[dict objectForKey:kSNSDelayKey] isKindOfClass:[NSNumber class]]) {
+            _delayInterval = [[dict objectForKey:kSNSDelayKey] unsignedIntegerValue];
+        }
+        
     }
     return self;
 }

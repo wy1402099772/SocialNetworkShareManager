@@ -54,14 +54,14 @@ SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
     return instance;
 }
 
-- (void)shareImage:(UIImage *)image caption:(NSString *)caption description:(NSString *)description type:(SocialNetworkShareType)shareType andAssociatedVC:(UIViewController *)controller {
-    NSObject<SocialNetworkShareTaskProtocol> *task = [self getSNSTaskFromShareType:shareType];
+- (void)shareImage:(UIImage *)image caption:(NSString *)caption description:(NSString *)description model:(SocialNetworkShareCellModel *)shareModel andAssociatedVC:(UIViewController *)controller {
+    NSObject<SocialNetworkShareTaskProtocol> *task = [self getSNSTaskFromShareType:shareModel.shareType];
     if(task) {
         [task associateDelegate:self];
         [task shareImage:image
                  caption:caption
              description:description
-                    type:shareType
+                   model:shareModel
                 shareUrl:nil
                albumName:self.albumName
          andAssociatedVC:controller];
@@ -121,7 +121,7 @@ SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
         [[SocialNetworkShareManager sharedInstance] shareImage:[UIImage imageNamed:@"image_comment_banner"]
                                                        caption:@"Caption"
                                                    description:@"hello, word"
-                                                          type:cellModel.shareType
+                                                          model:cellModel
                                                andAssociatedVC:self.associatedVC];
     }
 }
@@ -146,9 +146,14 @@ SocialNetworkShareType SNSTypeFacebookInApp     = @"SNSTypeFacebookInApp";
 
 
 #pragma mark - SocialNetworkShareTaskDelegate
-- (void)requestShareManagerToShowAlert:(NSString *)title message:(NSString *)message confirmInfo:(NSString *)confirmInfo cancelInfo:(NSString *)cancelInfo completion:(void (^)(BOOL))block {
-    if(self.delegate && [self.delegate respondsToSelector:@selector(shareManagerRequestToShowAlert:message:confirmInfo:cancelInfo:completion:)]) {
-        [self.delegate shareManagerRequestToShowAlert:title message:message confirmInfo:confirmInfo cancelInfo:cancelInfo completion:block];
+- (void)requestShareManagerToShowAlert:(NSString *)title message:(NSString *)message confirmInfo:(NSString *)confirmInfo cancelInfo:(NSString *)cancelInfo delay:(NSUInteger)delayInterval completion:(void (^)(BOOL))block {
+    if(self.delegate && [self.delegate respondsToSelector:@selector(shareManagerRequestToShowAlert:message:confirmInfo:cancelInfo:delay:completion:)]) {
+        [self.delegate shareManagerRequestToShowAlert:title
+                                              message:message
+                                          confirmInfo:confirmInfo
+                                           cancelInfo:cancelInfo
+                                                delay:delayInterval
+                                           completion:block];
     } else {
         if(block) {
             block(YES);

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SocialNetworkShareManager.h"
 #import "SocialNetworkShareTaskDelegate.h"
+#import "SocialNetworkShareCellModel.h"
 
 @class UIImage, UIViewController;
 
@@ -21,7 +22,7 @@
 - (void)shareImage:(UIImage *)image
            caption:(NSString *)caption
        description:(NSString *)description
-              type:(SocialNetworkShareType)shareType
+             model:(SocialNetworkShareCellModel *)shareModel
           shareUrl:(NSURL *)shareURL
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller;

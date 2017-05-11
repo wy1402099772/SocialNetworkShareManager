@@ -32,7 +32,7 @@
 - (void)shareImage:(id)image
            caption:(NSString *)caption
        description:(NSString *)description
-              type:(id)shareType
+             model:(SocialNetworkShareCellModel *)shareModel
           shareUrl:(NSURL *)shareURL
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller {
@@ -40,8 +40,17 @@
     if(description) {
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
         [pasteboard setString:description];
-        if(self.delegate && [self.delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:completion:)]) {
-            [self.delegate requestShareManagerToShowAlert:@"Copy Successfully" message:@"Your link to share has been copied. You can directly paste the link and share with your friends." confirmInfo:@"Sure" cancelInfo:nil completion:nil];
+        if(self.delegate && [self.delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:delay:completion:)]) {
+            [self.delegate requestShareManagerToShowAlert:shareModel.requestTitle
+                                                  message:shareModel.requestDesc
+                                              confirmInfo:shareModel.confirmStr
+                                               cancelInfo:shareModel.cancelStr
+                                                    delay:shareModel.delayInterval
+                                               completion:^(BOOL success) {
+                                                   if(success) {
+                                                       
+                                                   }
+                                               }];
         }
     }
 }

@@ -32,7 +32,7 @@
 - (void)shareImage:(id)image
            caption:(NSString *)caption
        description:(NSString *)description
-              type:(id)shareType
+             model:(SocialNetworkShareCellModel *)shareModel
           shareUrl:(NSURL *)shareURL
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller {

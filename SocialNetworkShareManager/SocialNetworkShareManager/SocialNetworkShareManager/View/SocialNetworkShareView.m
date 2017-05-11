@@ -98,11 +98,15 @@ static NSString *SocialNetworkShareCollectionViewCellIdentifier = @"SocialNetwor
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(SNS_SCREENAPPLYHEIGHT(70), SNS_SCREENAPPLYHEIGHT(103));
+    return CGSizeMake(SNS_SCREENAPPLYHEIGHT(66), SNS_SCREENAPPLYHEIGHT(103));
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(0, SNS_SCREENAPPLYHEIGHT(7), 0, SNS_SCREENAPPLYHEIGHT(7));
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 0;
 }
 
 #pragma mark - Getter

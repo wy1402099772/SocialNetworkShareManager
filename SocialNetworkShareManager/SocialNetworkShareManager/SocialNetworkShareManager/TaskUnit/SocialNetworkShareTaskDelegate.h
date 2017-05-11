@@ -14,6 +14,7 @@
                                message:(NSString *)message
                            confirmInfo:(NSString *)confirmInfo
                             cancelInfo:(NSString *)cancelInfo
+                                 delay:(NSUInteger)delayInterval
                             completion:(void (^)(BOOL))block;
 
 @end

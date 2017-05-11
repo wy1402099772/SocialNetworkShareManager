@@ -32,12 +32,25 @@
 - (void)shareImage:(id)image
            caption:(NSString *)caption
        description:(NSString *)description
-              type:(id)shareType
+             model:(SocialNetworkShareCellModel *)shareModel
           shareUrl:(NSURL *)shareURL
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller {
     
-    
+    if(description.length && self.delegate && [self.delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:delay:completion:)]) {
+        [self.delegate requestShareManagerToShowAlert:shareModel.requestTitle
+                                              message:shareModel.requestDesc
+                                          confirmInfo:shareModel.confirmStr
+                                           cancelInfo:shareModel.cancelStr
+                                                delay:shareModel.delayInterval
+                                           completion:^(BOOL success) {
+                                               if(success) {
+                                                   
+                                               }
+                                           }];
+    } else {
+        
+    }
 }
 
 - (void)associateDelegate:(id<SocialNetworkShareTaskDelegate>)delegate {
