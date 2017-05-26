@@ -11,9 +11,6 @@
 
 @interface GXShareWhatsAppTask ()
 
-@property (nonatomic, assign) GXShareType shareType;
-@property (nonatomic, weak) id<GXShareTaskDelegate> delegate;
-
 @end
 
 @implementation GXShareWhatsAppTask
@@ -45,7 +42,7 @@
 }
 
 - (void)associateDelegate:(id<GXShareTaskDelegate>)delegate {
-    _delegate = delegate;
+    [super associateDelegate:delegate];
 }
 
 @end

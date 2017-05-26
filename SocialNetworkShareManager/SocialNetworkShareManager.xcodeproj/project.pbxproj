@@ -36,6 +36,7 @@
 		93A8A7A31EC31CE50024C694 /* GXShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A8A7A21EC31CE50024C694 /* GXShareView.m */; };
 		93A8A7B81EC343100024C694 /* GXShareCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A8A7B71EC343100024C694 /* GXShareCollectionViewCell.m */; };
 		93A8A7BC1EC343EE0024C694 /* GXShareCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A8A7BB1EC343EE0024C694 /* GXShareCellModel.m */; };
+		93B84F561ED82A8B006C5C33 /* GxShareTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B84F551ED82A8B006C5C33 /* GxShareTask.m */; };
 		F8DB8D45CCC3A4231C24B3DB /* libPods-SocialNetworkShareManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE8C35131D491847DC6B995D /* libPods-SocialNetworkShareManager.a */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,8 @@
 		93A8A7BA1EC343EE0024C694 /* GXShareCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXShareCellModel.h; sourceTree = "<group>"; };
 		93A8A7BB1EC343EE0024C694 /* GXShareCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXShareCellModel.m; sourceTree = "<group>"; };
 		93A8A7C31EC40B9D0024C694 /* GXShareTaskDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXShareTaskDelegate.h; sourceTree = "<group>"; };
+		93B84F541ED82A8B006C5C33 /* GxShareTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GxShareTask.h; sourceTree = "<group>"; };
+		93B84F551ED82A8B006C5C33 /* GxShareTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GxShareTask.m; sourceTree = "<group>"; };
 		9B881E4FDDF5B02C50C02431 /* Pods-SocialNetworkShareManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkShareManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworkShareManager/Pods-SocialNetworkShareManager.release.xcconfig"; sourceTree = "<group>"; };
 		CF296A946A124267754EB186 /* Pods-SocialNetworkShareManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworkShareManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworkShareManager/Pods-SocialNetworkShareManager.debug.xcconfig"; sourceTree = "<group>"; };
 		DE8C35131D491847DC6B995D /* libPods-SocialNetworkShareManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocialNetworkShareManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +193,8 @@
 			children = (
 				939ADDBA1EC1EE0A009EE88C /* GXShareTaskProtocol.h */,
 				93A8A7C31EC40B9D0024C694 /* GXShareTaskDelegate.h */,
+				93B84F541ED82A8B006C5C33 /* GxShareTask.h */,
+				93B84F551ED82A8B006C5C33 /* GxShareTask.m */,
 				939ADDBB1EC1F294009EE88C /* GXShareInstagramTask.h */,
 				939ADDBC1EC1F294009EE88C /* GXShareInstagramTask.m */,
 				939ADDD71EC2B65D009EE88C /* GXShareFacebookTask.h */,
@@ -388,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93B84F561ED82A8B006C5C33 /* GxShareTask.m in Sources */,
 				939ADDD91EC2B65D009EE88C /* GXShareFacebookTask.m in Sources */,
 				939ADDE81EC2BBB2009EE88C /* GXShareIMessqgeTask.m in Sources */,
 				93A8A7BC1EC343EE0024C694 /* GXShareCellModel.m in Sources */,

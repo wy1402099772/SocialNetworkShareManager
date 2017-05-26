@@ -12,9 +12,6 @@
 
 @interface GXShareMessengerTask ()
 
-@property (nonatomic, assign) GXShareType shareType;
-@property (nonatomic, weak) id<GXShareTaskDelegate> delegate;
-
 @end
 
 @implementation GXShareMessengerTask
@@ -42,7 +39,7 @@
 }
 
 - (void)associateDelegate:(id<GXShareTaskDelegate>)delegate {
-    _delegate = delegate;
+    [super associateDelegate:delegate];
 }
 
 @end

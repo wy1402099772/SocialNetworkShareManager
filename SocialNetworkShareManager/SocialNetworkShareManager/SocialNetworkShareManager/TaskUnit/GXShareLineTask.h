@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GXShareTaskProtocol.h"
+#import "GxShareTask.h"
 
-@interface GXShareLineTask : NSObject <GXShareTaskProtocol>
+@interface GXShareLineTask : GxShareTask
 
 @end

@@ -12,9 +12,6 @@
 
 @interface GXShareInstagramTask ()
 
-@property (nonatomic, assign) GXShareType shareType;
-@property (nonatomic, weak) id<GXShareTaskDelegate> delegate;
-
 @end
 
 @implementation GXShareInstagramTask
@@ -46,8 +43,8 @@
                         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
                         [pasteboard setString:description];
                     }
-                    if(description.length && self.delegate && [self.delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:delay:completion:)]) {
-                        [self.delegate requestShareManagerToShowAlert:shareModel.requestTitle
+                    if(description.length && _delegate && [_delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:delay:completion:)]) {
+                        [_delegate requestShareManagerToShowAlert:shareModel.requestTitle
                                                               message:shareModel.requestDesc
                                                           confirmInfo:shareModel.confirmStr
                                                            cancelInfo:shareModel.cancelStr
@@ -73,7 +70,7 @@
 }
 
 - (void)associateDelegate:(id<GXShareTaskDelegate>)delegate {
-    _delegate = delegate;
+    [super associateDelegate:delegate];
 }
 
 @end

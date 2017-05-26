@@ -22,6 +22,8 @@
 #import "GXShareView.h"
 #import "GXShareCellModel.h"
 
+#import "GxShareTask.h"
+
 GXShareType SNSTypeFacebook          = @"SNSTypeFacebook";
 GXShareType SNSTypeInstagram         = @"SNSTypeInstagram";
 GXShareType SNSTypeTwitter           = @"SNSTypeTwitter";
@@ -34,7 +36,7 @@ GXShareType SNSTypeyLinkCopy         = @"SNSTypeyLinkCopy";
 
 @interface GXShareManager () <SNSDropdownViewDelegate, GXShareViewDelegate, GXShareTaskDelegate>
 
-@property (nonatomic, strong) NSMutableDictionary<GXShareType, NSObject<GXShareTaskProtocol> *> *taskDict;
+@property (nonatomic, strong) NSMutableDictionary<GXShareType, GxShareTask *> *taskDict;
 
 @property (nonatomic, strong) SNSDropdownView *dropdownView;
 @property (nonatomic, strong) GXShareView *shareView;
@@ -56,7 +58,7 @@ GXShareType SNSTypeyLinkCopy         = @"SNSTypeyLinkCopy";
 
 - (void)shareImage:(UIImage *)image caption:(NSString *)caption description:(NSString *)description model:(GXShareCellModel *)shareModel andAssociatedVC:(UIViewController *)controller {
     self.associatedVC = controller;
-    NSObject<GXShareTaskProtocol> *task = [self getSNSTaskFromShareType:shareModel.shareType];
+    GxShareTask *task = [self getSNSTaskFromShareType:shareModel.shareType];
     if(task) {
         [task associateDelegate:self];
         [task shareImage:image
@@ -70,7 +72,7 @@ GXShareType SNSTypeyLinkCopy         = @"SNSTypeyLinkCopy";
 }
 
 - (BOOL)willShareCallback:(GXShareType)shareType {
-    NSObject<GXShareTaskProtocol> *task = [self getSNSTaskFromShareType:shareType];
+    GxShareTask *task = [self getSNSTaskFromShareType:shareType];
     return [task willCallbackWhenShareStop];
 }
 
@@ -79,8 +81,8 @@ GXShareType SNSTypeyLinkCopy         = @"SNSTypeyLinkCopy";
 }
 
 #pragma mark - Private
-- (NSObject<GXShareTaskProtocol> *)getSNSTaskFromShareType:(GXShareType)shareType {
-    NSObject<GXShareTaskProtocol> *task = [self.taskDict objectForKey:shareType];
+- (GxShareTask *)getSNSTaskFromShareType:(GXShareType)shareType {
+    GxShareTask *task = [self.taskDict objectForKey:shareType];
     if(!task) {
         if([shareType isEqualToString:SNSTypeFacebook]) {
             task = [[GXShareFacebookTask alloc] init];
@@ -169,7 +171,7 @@ GXShareType SNSTypeyLinkCopy         = @"SNSTypeyLinkCopy";
 
 
 #pragma mark - Getter
-- (NSMutableDictionary<GXShareType,NSObject<GXShareTaskProtocol> *> *)taskDict {
+- (NSMutableDictionary<GXShareType,GxShareTask *> *)taskDict {
     if(!_taskDict) {
         _taskDict = [NSMutableDictionary dictionary];
     }

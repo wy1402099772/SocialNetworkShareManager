@@ -12,9 +12,6 @@
 
 @interface GXShareIMessqgeTask () <MFMessageComposeViewControllerDelegate>
 
-@property (nonatomic, assign) GXShareType shareType;
-@property (nonatomic, weak) id<GXShareTaskDelegate> delegate;
-
 @end
 
 @implementation GXShareIMessqgeTask
@@ -51,7 +48,7 @@
 }
 
 - (void)associateDelegate:(id<GXShareTaskDelegate>)delegate {
-    _delegate = delegate;
+    [super associateDelegate:delegate];
 }
 
 #pragma mark - MFMessageComposeViewControllerDelegate

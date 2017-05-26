@@ -12,9 +12,6 @@
 
 @interface GXShareEmailTask () <MFMailComposeViewControllerDelegate>
 
-@property (nonatomic, assign) GXShareType shareType;
-@property (nonatomic, weak) id<GXShareTaskDelegate> delegate;
-
 @end
 
 @implementation GXShareEmailTask
@@ -62,7 +59,7 @@
 }
 
 - (void)associateDelegate:(id<GXShareTaskDelegate>)delegate {
-    _delegate = delegate;
+    [super associateDelegate:delegate];
 }
 
 #pragma mark - MFMailComposeViewControllerDelegate

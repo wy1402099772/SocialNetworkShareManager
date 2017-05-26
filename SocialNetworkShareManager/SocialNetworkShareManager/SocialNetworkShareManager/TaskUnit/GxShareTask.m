@@ -1,23 +1,25 @@
 //
-//  GXShareLineTask.m
-//  GXShareManager
+//  GxShareTask.m
+//  SocialNetworkShareManager
 //
-//  Created by wyan assert on 10/05/2017.
-//  Copyright © 2017 wyan assert. All rights reserved.
+//  Created by wyan assert on 2017/5/26.
+//  Copyright © 2017年 wyan assert. All rights reserved.
 //
 
-#import "GXShareLineTask.h"
+#import "GxShareTask.h"
 #import "GXShareManager.h"
 
-@interface GXShareLineTask ()
+@interface GxShareTask () {
+   
+}
 
 @end
 
-@implementation GXShareLineTask
+@implementation GxShareTask
 
 - (instancetype)init {
     if(self = [super init]) {
-        _shareType = SNSTypeLine;
+        
     }
     return self;
 }
@@ -26,7 +28,7 @@
     return NO;
 }
 
-- (void)shareImage:(id)image
+- (void)shareImage:(UIImage *)image
            caption:(NSString *)caption
        description:(NSString *)description
              model:(GXShareCellModel *)shareModel
@@ -37,7 +39,7 @@
 }
 
 - (void)associateDelegate:(id<GXShareTaskDelegate>)delegate {
-    [super associateDelegate:delegate];
+    _delegate = delegate;
 }
 
 @end
