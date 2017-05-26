@@ -1,16 +1,16 @@
 //
 //  ViewController.m
-//  SocialNetworkShareManager
+//  GXShareManager
 //
 //  Created by wyan assert on 09/05/2017.
 //  Copyright © 2017 wyan assert. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "SocialNetworkShareManager.h"
+#import "GXShareManager.h"
 #import <FFToast/FFToast.h>
 
-@interface ViewController () <SocialNetworkShareManagerDelegate>
+@interface ViewController () <GXShareManagerDelegate>
 
 @end
 
@@ -36,12 +36,12 @@
 }
 
 - (void)presentAction {
-    [SocialNetworkShareManager sharedInstance].associatedVC = self;
-    [SocialNetworkShareManager sharedInstance].delegate = self;
-    [SocialNetworkShareManager sharedInstance].title = @"Ccption";
-    [SocialNetworkShareManager sharedInstance].desc = @"Hello , word!!  https://baidu.com";
-    [SocialNetworkShareManager sharedInstance].cellConfig = [self getExampleData];
-    [[SocialNetworkShareManager sharedInstance] showShareViewWithAssociatedVC:self];
+    [GXShareManager sharedInstance].associatedVC = self;
+    [GXShareManager sharedInstance].delegate = self;
+    [GXShareManager sharedInstance].title = @"Ccption";
+    [GXShareManager sharedInstance].desc = @"Hello , word!!  https://baidu.com";
+//    [GXShareManager sharedInstance].cellConfig = [self getExampleData];
+    [[GXShareManager sharedInstance] showShareViewWithAssociatedVC:self];
 }
 
 - (NSArray<NSDictionary *> *)getExampleData {
@@ -130,7 +130,7 @@
 }
 
 
-#pragma mark - SocialNetworkShareManagerDelegate
+#pragma mark - GXShareManagerDelegate
 - (void)shareManagerRequestToShowAlert:(NSString *)title
                                message:(NSString *)message
                            confirmInfo:(NSString *)confirmInfo
