@@ -24,6 +24,14 @@
     }];
 }
 
++ (void)saveVideo:(NSURL *)videoURL toAlbum:(NSString *)name completion:(void (^)(BOOL))block {
+    [self saveVideo:videoURL IntoAlbum:name completion:^(BOOL success, NSError *error) {
+        if(block) {
+            block(success);
+        }
+    }];
+}
+
 + (NSURL *)getLastAssetURL {
     PHFetchOptions *fetchOptions = [[PHFetchOptions alloc] init];
     fetchOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
@@ -107,5 +115,33 @@
     }];
 }
 
++ (void)saveVideo:(NSURL *)url IntoAlbum:(NSString *)albumName completion:(void(^)(BOOL success, NSError *error))completion
+{
+    [self createPhotoAlbum:albumName completion:^(BOOL success, NSError *error) {
+        if (!success) {
+            NSLog(@"create album error : %@", error);
+            return;
+        }
+        // Add it to the photo library
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+            PHAssetChangeRequest *assetChangeRequest = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:url];
+            PHCollection *album = [self getAlbumWithName:albumName];
+            if (album) {
+                PHAssetCollectionChangeRequest *assetCollectionChangeRequest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:(PHAssetCollection *)album];
+                [assetCollectionChangeRequest addAssets:@[[assetChangeRequest placeholderForCreatedAsset]]];
+            }
+        } completionHandler:^(BOOL success, NSError *error) {
+            if (!success) {
+                NSLog(@"Error creating asset: %@", error);
+            }
+            if(completion)
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(success, error);
+                });
+            }
+        }];
+    }];
+}
 
 @end

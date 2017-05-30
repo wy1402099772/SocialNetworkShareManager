@@ -24,6 +24,9 @@
         if([dict objectForKey:kSNSRequestTitleKey] && [[dict objectForKey:kSNSRequestTitleKey] isKindOfClass:[NSString class]]) {
             _requestTitle = [dict objectForKey:kSNSRequestTitleKey];
         }
+        if([dict objectForKey:kSNSRequestVideoKey] && [[dict objectForKey:kSNSRequestVideoKey] isKindOfClass:[NSString class]]) {
+            _requestTitleForVideo = [dict objectForKey:kSNSRequestVideoKey];
+        }
         if([dict objectForKey:kSNSRequestDescKey] && [[dict objectForKey:kSNSRequestDescKey] isKindOfClass:[NSString class]]) {
             _requestDesc = [dict objectForKey:kSNSRequestDescKey];
         }

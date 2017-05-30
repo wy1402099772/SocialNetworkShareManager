@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "GXShareParameters.h"
+#import <AVFoundation/AVFoundation.h>
 
 @class GXShareCellModel;
 
@@ -40,17 +41,14 @@ extern GXShareType SNSTypeFacebookInApp;
 
 + (instancetype)sharedInstance;
 
-- (void)shareImage:(UIImage *)image
-           caption:(NSString *)caption
-       description:(NSString *)description
-             model:(GXShareCellModel *)shareModel
-   andAssociatedVC:(UIViewController *)controller;
-
 - (BOOL)willShareCallback:(GXShareType)shareType;
 
 - (void)showShareViewWithAssociatedVC:(UIViewController *)controller;
+
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *desc;
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) NSURL *videoURL;
 
 @property (nonatomic, strong) NSString *albumName;
 @property (nonatomic, weak)   UIViewController *associatedVC;

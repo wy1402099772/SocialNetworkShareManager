@@ -38,6 +38,16 @@
     [FBSDKMessengerSharer shareImage:image withOptions:nil];
 }
 
+- (void)shareVideo:(NSURL *)videoURL
+           caption:(NSString *)caption
+       description:(NSString *)description
+             model:(GXShareCellModel *)shareModel
+          shareUrl:(NSURL *)shareURL
+         albumName:(NSString *)albumName
+   andAssociatedVC:(UIViewController *)controller {
+    
+}
+
 - (void)associateDelegate:(id<GXShareTaskDelegate>)delegate {
     [super associateDelegate:delegate];
 }

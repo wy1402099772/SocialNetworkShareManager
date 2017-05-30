@@ -33,6 +33,7 @@ typedef void(^SNSCompletion)(BOOL success, NSError *error);
 #define kSNSImageStrKey     @"imageName"
 #define kSNSTitleKey        @"title"
 #define kSNSRequestTitleKey @"requestTitle"
+#define kSNSRequestVideoKey @"requestTitleForVideo"
 #define kSNSRequestDescKey  @"requestDesc"
 #define kSNSConfirmKey      @"confirm"
 #define kSNSCancelKey       @"cancel"

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9317A6941EDD4A6E0004539B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9317A6931EDD4A6E0004539B /* AVFoundation.framework */; };
+		9317A6961EDD4CD40004539B /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9317A6951EDD4CD40004539B /* test.mp4 */; };
 		939ADD8F1EC1CE08009EE88C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADD8E1EC1CE08009EE88C /* main.m */; };
 		939ADD921EC1CE08009EE88C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADD911EC1CE08009EE88C /* AppDelegate.m */; };
 		939ADD951EC1CE08009EE88C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADD941EC1CE08009EE88C /* ViewController.m */; };
@@ -41,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9317A6931EDD4A6E0004539B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9317A6951EDD4CD40004539B /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		939ADD8A1EC1CE08009EE88C /* SocialNetworkShareManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworkShareManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939ADD8E1EC1CE08009EE88C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		939ADD901EC1CE08009EE88C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9317A6941EDD4A6E0004539B /* AVFoundation.framework in Frameworks */,
 				93A8A7931EC3007B0024C694 /* MessageUI.framework in Frameworks */,
 				939ADDF31EC2C339009EE88C /* Social.framework in Frameworks */,
 				939ADDCA1EC1F83D009EE88C /* Photos.framework in Frameworks */,
@@ -118,6 +123,7 @@
 		428F3F2DA965CE0E7325F638 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9317A6931EDD4A6E0004539B /* AVFoundation.framework */,
 				93A8A7921EC3007B0024C694 /* MessageUI.framework */,
 				939ADDF21EC2C339009EE88C /* Social.framework */,
 				939ADDC91EC1F83D009EE88C /* Photos.framework */,
@@ -155,6 +161,7 @@
 				939ADD941EC1CE08009EE88C /* ViewController.m */,
 				939ADDCE1EC201FB009EE88C /* image_comment_banner@2x.png */,
 				939ADDCF1EC201FB009EE88C /* image_comment_banner@3x.png */,
+				9317A6951EDD4CD40004539B /* test.mp4 */,
 				939ADD961EC1CE08009EE88C /* Main.storyboard */,
 				939ADD991EC1CE08009EE88C /* Assets.xcassets */,
 				939ADD9B1EC1CE08009EE88C /* LaunchScreen.storyboard */,
@@ -332,6 +339,7 @@
 				939ADD9D1EC1CE08009EE88C /* LaunchScreen.storyboard in Resources */,
 				939ADDD11EC201FB009EE88C /* image_comment_banner@3x.png in Resources */,
 				939ADDAC1EC1D36D009EE88C /* GXShare.bundle in Resources */,
+				9317A6961EDD4CD40004539B /* test.mp4 in Resources */,
 				939ADDD01EC201FB009EE88C /* image_comment_banner@2x.png in Resources */,
 				939ADD9A1EC1CE08009EE88C /* Assets.xcassets in Resources */,
 				939ADD981EC1CE08009EE88C /* Main.storyboard in Resources */,

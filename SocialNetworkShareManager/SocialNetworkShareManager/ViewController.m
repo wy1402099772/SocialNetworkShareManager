@@ -38,8 +38,10 @@
 - (void)presentAction {
     [GXShareManager sharedInstance].associatedVC = self;
     [GXShareManager sharedInstance].delegate = self;
-    [GXShareManager sharedInstance].title = @"Ccption";
+    [GXShareManager sharedInstance].title = @"Caption";
     [GXShareManager sharedInstance].desc = @"Hello , word!!  https://baidu.com";
+    [GXShareManager sharedInstance].videoURL = [[NSBundle mainBundle] URLForResource:@"test" withExtension:@"mp4"];
+    [GXShareManager sharedInstance].image = [UIImage imageNamed:@"image_comment_banner"];
 //    [GXShareManager sharedInstance].cellConfig = [self getExampleData];
     [[GXShareManager sharedInstance] showShareViewWithAssociatedVC:self];
 }

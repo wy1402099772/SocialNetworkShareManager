@@ -69,6 +69,45 @@
     }];
 }
 
+- (void)shareVideo:(NSURL *)videoURL
+           caption:(NSString *)caption
+       description:(NSString *)description
+             model:(GXShareCellModel *)shareModel
+          shareUrl:(NSURL *)shareURL
+         albumName:(NSString *)albumName
+   andAssociatedVC:(UIViewController *)controller {
+    [GXShareAlbumUtil configAlbumsWithName:albumName completion:^(BOOL success, NSError *error) {
+        if(success) {
+            [GXShareAlbumUtil saveVideo:videoURL toAlbum:albumName completion:^(BOOL saveFlag) {
+                if(saveFlag) {
+                    if(description.length) {
+                        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+                        [pasteboard setString:description];
+                    }
+                    if(description.length && _delegate && [_delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:delay:completion:)]) {
+                        [_delegate requestShareManagerToShowAlert:shareModel.requestTitleForVideo
+                                                          message:shareModel.requestDesc
+                                                      confirmInfo:shareModel.confirmStr
+                                                       cancelInfo:shareModel.cancelStr
+                                                            delay:shareModel.delayInterval
+                                                       completion:^(BOOL success) {
+                                                           if(success) {
+                                                               NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@",[[[GXShareAlbumUtil getLastAssetURL] absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
+                                                               [[UIApplication sharedApplication] openURL:instagramURL];
+                                                           }
+                                                       }];
+                    } else {
+                        NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@",[[[GXShareAlbumUtil getLastAssetURL] absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
+                        [[UIApplication sharedApplication] openURL:instagramURL];
+                    }
+                } else {
+                    
+                }
+            }];
+        }
+    }];
+}
+
 - (void)associateDelegate:(id<GXShareTaskDelegate>)delegate {
     [super associateDelegate:delegate];
 }

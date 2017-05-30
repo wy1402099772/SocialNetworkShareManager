@@ -15,6 +15,8 @@
 
 + (void)saveImage:(UIImage *)image toAlbum:(NSString *)name completion:(void (^)(BOOL))block;
 
++ (void)saveVideo:(NSURL *)videoURL toAlbum:(NSString *)name completion:(void (^)(BOOL))block;
+
 + (NSURL *)getLastAssetURL;
 
 @end

@@ -56,21 +56,6 @@ GXShareType SNSTypeyLinkCopy         = @"SNSTypeyLinkCopy";
     return instance;
 }
 
-- (void)shareImage:(UIImage *)image caption:(NSString *)caption description:(NSString *)description model:(GXShareCellModel *)shareModel andAssociatedVC:(UIViewController *)controller {
-    self.associatedVC = controller;
-    GxShareTask *task = [self getSNSTaskFromShareType:shareModel.shareType];
-    if(task) {
-        [task associateDelegate:self];
-        [task shareImage:image
-                 caption:caption
-             description:description
-                   model:shareModel
-                shareUrl:nil
-               albumName:self.albumName
-         andAssociatedVC:controller];
-    }
-}
-
 - (BOOL)willShareCallback:(GXShareType)shareType {
     GxShareTask *task = [self getSNSTaskFromShareType:shareType];
     return [task willCallbackWhenShareStop];
@@ -81,6 +66,31 @@ GXShareType SNSTypeyLinkCopy         = @"SNSTypeyLinkCopy";
 }
 
 #pragma mark - Private
+- (void)shareImage:(UIImage *)image caption:(NSString *)caption description:(NSString *)description model:(GXShareCellModel *)shareModel andAssociatedVC:(UIViewController *)controller {
+    self.associatedVC = controller;
+    GxShareTask *task = [self getSNSTaskFromShareType:shareModel.shareType];
+    if(task) {
+        [task associateDelegate:self];
+        if(self.videoURL.absoluteString.length) {
+            [task shareVideo:self.videoURL
+                     caption:caption
+                 description:description
+                       model:shareModel
+                    shareUrl:nil
+                   albumName:self.albumName
+             andAssociatedVC:controller];
+        } else {
+            [task shareImage:image
+                     caption:caption
+                 description:description
+                       model:shareModel
+                    shareUrl:nil
+                   albumName:self.albumName
+             andAssociatedVC:controller];
+        }
+    }
+}
+
 - (GxShareTask *)getSNSTaskFromShareType:(GXShareType)shareType {
     GxShareTask *task = [self.taskDict objectForKey:shareType];
     if(!task) {
@@ -119,11 +129,11 @@ GXShareType SNSTypeyLinkCopy         = @"SNSTypeyLinkCopy";
 - (void)soicalShareViewDidSelectCell:(GXShareCellModel *)cellModel {
     [self.dropdownView hide];
     if(self.associatedVC) {
-        [[GXShareManager sharedInstance] shareImage:[UIImage imageNamed:@"image_comment_banner"]
-                                                       caption:self.title
-                                                   description:self.desc
-                                                          model:cellModel
-                                               andAssociatedVC:self.associatedVC];
+        [[GXShareManager sharedInstance] shareImage:self.image
+                                            caption:self.title
+                                        description:self.desc
+                                              model:cellModel
+                                    andAssociatedVC:self.associatedVC];
     }
 }
 
