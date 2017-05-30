@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+@import Photos;
 
 @interface GXShareAlbumUtil : NSObject
 
@@ -17,6 +18,7 @@
 
 + (void)saveVideo:(NSURL *)videoURL toAlbum:(NSString *)name completion:(void (^)(BOOL))block;
 
-+ (NSURL *)getLastAssetURL;
++ (NSURL *)getLastImageURL:(PHAssetMediaType)mediaType;
++ (void)getLastImageALURL:(PHAssetMediaType)mediaType completion:(void (^)(NSURL *))block;
 
 @end

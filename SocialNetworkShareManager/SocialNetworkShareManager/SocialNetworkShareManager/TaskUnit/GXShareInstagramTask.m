@@ -51,12 +51,12 @@
                                                                 delay:shareModel.delayInterval
                                                            completion:^(BOOL success) {
                             if(success) {
-                                NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@",[[[GXShareAlbumUtil getLastAssetURL] absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
+                                NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@",[[[GXShareAlbumUtil getLastImageURL:PHAssetMediaTypeImage] absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
                                 [[UIApplication sharedApplication] openURL:instagramURL];
                             }
                         }];
                     } else {
-                        NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@",[[[GXShareAlbumUtil getLastAssetURL] absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
+                        NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@",[[[GXShareAlbumUtil getLastImageURL:PHAssetMediaTypeImage] absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
                         [[UIApplication sharedApplication] openURL:instagramURL];
                     }
                 } else {
@@ -92,12 +92,12 @@
                                                             delay:shareModel.delayInterval
                                                        completion:^(BOOL success) {
                                                            if(success) {
-                                                               NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@",[[[GXShareAlbumUtil getLastAssetURL] absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
+                                                               NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@",[[[GXShareAlbumUtil getLastImageURL:PHAssetMediaTypeVideo] absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
                                                                [[UIApplication sharedApplication] openURL:instagramURL];
                                                            }
                                                        }];
                     } else {
-                        NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@",[[[GXShareAlbumUtil getLastAssetURL] absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
+                        NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@",[[[GXShareAlbumUtil getLastImageURL:PHAssetMediaTypeVideo] absoluteString] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]]];
                         [[UIApplication sharedApplication] openURL:instagramURL];
                     }
                 } else {

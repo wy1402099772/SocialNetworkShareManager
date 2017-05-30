@@ -8,8 +8,6 @@
 
 #import "GXShareAlbumUtil.h"
 
-@import Photos;
-
 @implementation GXShareAlbumUtil
 
 + (void)configAlbumsWithName:(NSString *)albumName completion:(void (^)(BOOL, NSError *))block {
@@ -32,12 +30,72 @@
     }];
 }
 
-+ (NSURL *)getLastAssetURL {
++ (NSURL *)getLastImageURL:(PHAssetMediaType)mediaType {
     PHFetchOptions *fetchOptions = [[PHFetchOptions alloc] init];
     fetchOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
-    PHFetchResult *fetchResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:fetchOptions];
+    PHFetchResult *fetchResult = [PHAsset fetchAssetsWithMediaType:mediaType options:fetchOptions];
     PHAsset *lastAsset = [fetchResult lastObject];
     return [NSURL URLWithString:lastAsset.localIdentifier];
+}
+
++ (void)getLastImageALURL:(PHAssetMediaType)mediaType completion:(void (^)(NSURL *))block {
+    PHFetchOptions *fetchOptions = [[PHFetchOptions alloc] init];
+    fetchOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
+    PHFetchResult *fetchResult = [PHAsset fetchAssetsWithMediaType:mediaType options:fetchOptions];
+    PHAsset *lastAsset = [fetchResult lastObject];
+    NSString *phId = lastAsset.localIdentifier;
+    NSRange idRange = [phId rangeOfString:@"/"];
+    phId = [phId substringToIndex:idRange.location];
+    if(lastAsset.mediaType == PHAssetMediaTypeImage) {
+        //暂时不支持photo
+        if(block) {
+            block(nil);
+        }
+    } else if (lastAsset.mediaType == PHAssetMediaTypeVideo) {
+        PHVideoRequestOptions *option = [[PHVideoRequestOptions alloc] init];
+        
+        [[PHImageManager defaultManager] requestAVAssetForVideo:lastAsset
+                                                        options:option
+                                                  resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+                                                      if([info objectForKey:@"PHImageFileSandboxExtensionTokenKey"] && [[info objectForKey:@"PHImageFileSandboxExtensionTokenKey"] isKindOfClass:[NSString class]]) {
+                                                          NSRange range = [[info objectForKey:@"PHImageFileSandboxExtensionTokenKey"] rangeOfString:@"/" options:NSBackwardsSearch];
+                                                          if(range.length > 0) {
+                                                              NSString *name = [[info objectForKey:@"PHImageFileSandboxExtensionTokenKey"] substringFromIndex:range.location + range.length];
+                                                              NSRange dotRange = [name rangeOfString:@"."];
+                                                              if(dotRange.length > 0) {
+                                                                  NSString *ext = [name substringFromIndex:dotRange.length + dotRange.location].lowercaseString;
+                                                                  if(ext.length && phId.length) {
+                                                                      if(block) {
+                                                                          NSString *result = [NSString stringWithFormat:@"assets-library://asset/asset.%@?id=%@&ext=%@", ext, phId, ext];
+                                                                          block([NSURL URLWithString:result]);
+                                                                      }
+                                                                  } else {
+                                                                      if(block) {
+                                                                          block(nil);
+                                                                      }
+                                                                  }
+                                                              } else {
+                                                                  if(block) {
+                                                                      block(nil);
+                                                                  }
+                                                              }
+                                                          } else {
+                                                              if(block) {
+                                                                  block(nil);
+                                                              }
+                                                          }
+                                                      } else {
+                                                          if(block) {
+                                                              block(nil);
+                                                          }
+                                                      }
+                                                  }];
+    } else {
+        //暂时不支持live photo
+        if(block) {
+            block(nil);
+        }
+    }
 }
 
 

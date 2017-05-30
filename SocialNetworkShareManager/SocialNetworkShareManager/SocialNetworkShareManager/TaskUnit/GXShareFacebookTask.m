@@ -9,6 +9,7 @@
 #import "GXShareFacebookTask.h"
 #import "GXShareManager.h"
 #import <FBSDKShareKit/FBSDKShareKit.h>
+#import "GXShareAlbumUtil.h"
 
 @interface GXShareFacebookTask () <FBSDKSharingDelegate>
 
@@ -41,7 +42,7 @@
     FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
     content.photos = @[photo];
     
-    if(description.length && _delegate && [_delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:delay:completion:)]) {
+    if(_delegate && [_delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:delay:completion:)]) {
         [_delegate requestShareManagerToShowAlert:shareModel.requestTitle
                                               message:shareModel.requestDesc
                                           confirmInfo:shareModel.confirmStr
@@ -72,6 +73,36 @@
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller {
     
+    __weak typeof(self) weakSelf = self;
+    [GXShareAlbumUtil configAlbumsWithName:albumName completion:^(BOOL success, NSError *error) {
+        if(success) {
+            [GXShareAlbumUtil saveVideo:videoURL toAlbum:albumName completion:^(BOOL saveFlag) {
+                if(saveFlag) {
+                    if(_delegate && [_delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:delay:completion:)]) {
+                        [_delegate requestShareManagerToShowAlert:shareModel.requestTitleForVideo
+                                                          message:shareModel.requestDesc
+                                                      confirmInfo:shareModel.confirmStr
+                                                       cancelInfo:shareModel.cancelStr
+                                                            delay:shareModel.delayInterval
+                                                       completion:^(BOOL success) {
+                                                           if(success) {
+                                                               //Todo
+                                                               [GXShareAlbumUtil getLastImageALURL:PHAssetMediaTypeVideo completion:^(NSURL *fbURL) {
+                                                                   if(fbURL.absoluteString.length) {
+                                                                       [weakSelf shareVideo:fbURL model:shareModel andAssociatedVC:controller];
+                                                                   }
+                                                               }];
+                                                           }
+                                                       }];
+                    } else {
+                        //Todo
+                    }
+                } else {
+                    
+                }
+            }];
+        }
+    }];
 }
 
 - (void)associateDelegate:(id<GXShareTaskDelegate>)delegate {
@@ -89,6 +120,32 @@
 
 - (void)sharerDidCancel:(id<FBSDKSharing>)sharer {
     
+}
+
+#pragma mark - Private
+- (void)shareVideo:(NSURL *)videoURL model:(GXShareCellModel *)shareModel andAssociatedVC:(UIViewController *)controller {
+    FBSDKShareVideo *video = [[FBSDKShareVideo alloc] init];
+    video.videoURL = videoURL;
+    FBSDKShareVideoContent *content = [[FBSDKShareVideoContent alloc] init];
+    content.video = video;
+    if(_delegate && [_delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:delay:completion:)]) {
+        [_delegate requestShareManagerToShowAlert:shareModel.requestTitleForVideo
+                                          message:shareModel.requestDesc
+                                      confirmInfo:shareModel.confirmStr
+                                       cancelInfo:shareModel.cancelStr
+                                            delay:shareModel.delayInterval
+                                       completion:^(BOOL success) {
+                                           if(success) {
+                                               [FBSDKShareDialog showFromViewController:controller
+                                                                            withContent:content
+                                                                               delegate:self];
+                                           }
+                                       }];
+    } else {
+        [FBSDKShareDialog showFromViewController:controller
+                                     withContent:content
+                                        delegate:self];
+    }
 }
 
 @end

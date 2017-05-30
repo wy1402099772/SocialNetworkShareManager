@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "GXShareManager.h"
 #import <FFToast/FFToast.h>
+//#import "GXShareAlbumUtil.h"
+//#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface ViewController () <GXShareManagerDelegate>
 
@@ -27,6 +29,7 @@
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     [self.view addSubview:button];
+
 }
 
 
