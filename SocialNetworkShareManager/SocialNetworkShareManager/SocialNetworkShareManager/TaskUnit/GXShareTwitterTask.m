@@ -9,6 +9,7 @@
 #import "GXShareTwitterTask.h"
 #import "GXShareManager.h"
 #import <Social/Social.h>
+#import "GxShareVideoHelper.h"
 
 @interface GXShareTwitterTask ()
 
@@ -64,6 +65,23 @@
           shareUrl:(NSURL *)shareURL
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller {
+    ACAccountStore *accountStore = [[ACAccountStore alloc]init];
+    ACAccountType *twitterAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    [accountStore requestAccessToAccountsWithType:twitterAccountType
+                                          options:nil
+                                       completion:^(BOOL granted, NSError *error) {
+                                           if(granted) {
+                                               NSArray *twitterAccounts = [accountStore accountsWithAccountType:twitterAccountType];
+                                               if(twitterAccounts.count > 0) {
+                                                   [GxShareVideoHelper uploadTwitterVideo:[NSData dataWithContentsOfURL:videoURL]
+                                                                                  comment:description
+                                                                                  account:[twitterAccounts lastObject]
+                                                                           withCompletion:^(BOOL success, NSString *errorMessage) {
+                                                                               
+                                                                           }];
+                                               }
+                                           }
+                                       }];
     
 }
 

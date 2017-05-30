@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9317A6941EDD4A6E0004539B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9317A6931EDD4A6E0004539B /* AVFoundation.framework */; };
 		9317A6961EDD4CD40004539B /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9317A6951EDD4CD40004539B /* test.mp4 */; };
+		9317A6991EDD86160004539B /* GxShareVideoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9317A6981EDD86160004539B /* GxShareVideoHelper.m */; };
 		939ADD8F1EC1CE08009EE88C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADD8E1EC1CE08009EE88C /* main.m */; };
 		939ADD921EC1CE08009EE88C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADD911EC1CE08009EE88C /* AppDelegate.m */; };
 		939ADD951EC1CE08009EE88C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADD941EC1CE08009EE88C /* ViewController.m */; };
@@ -45,6 +45,8 @@
 /* Begin PBXFileReference section */
 		9317A6931EDD4A6E0004539B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9317A6951EDD4CD40004539B /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
+		9317A6971EDD86160004539B /* GxShareVideoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GxShareVideoHelper.h; sourceTree = "<group>"; };
+		9317A6981EDD86160004539B /* GxShareVideoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GxShareVideoHelper.m; sourceTree = "<group>"; };
 		939ADD8A1EC1CE08009EE88C /* SocialNetworkShareManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworkShareManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939ADD8E1EC1CE08009EE88C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		939ADD901EC1CE08009EE88C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,7 +111,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9317A6941EDD4A6E0004539B /* AVFoundation.framework in Frameworks */,
 				93A8A7931EC3007B0024C694 /* MessageUI.framework in Frameworks */,
 				939ADDF31EC2C339009EE88C /* Social.framework in Frameworks */,
 				939ADDCA1EC1F83D009EE88C /* Photos.framework in Frameworks */,
@@ -230,6 +231,8 @@
 				93A8A7991EC318B20024C694 /* LMDropdownView */,
 				939ADDC61EC1F71E009EE88C /* GXShareAlbumUtil.h */,
 				939ADDC71EC1F71E009EE88C /* GXShareAlbumUtil.m */,
+				9317A6971EDD86160004539B /* GxShareVideoHelper.h */,
+				9317A6981EDD86160004539B /* GxShareVideoHelper.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9317A6991EDD86160004539B /* GxShareVideoHelper.m in Sources */,
 				93B84F561ED82A8B006C5C33 /* GxShareTask.m in Sources */,
 				939ADDD91EC2B65D009EE88C /* GXShareFacebookTask.m in Sources */,
 				939ADDE81EC2BBB2009EE88C /* GXShareIMessqgeTask.m in Sources */,
