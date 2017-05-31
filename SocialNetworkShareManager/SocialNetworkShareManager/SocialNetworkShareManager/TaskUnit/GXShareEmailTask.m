@@ -66,6 +66,29 @@
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller {
     
+    MFMailComposeViewController *comp = [[MFMailComposeViewController alloc]init];
+    [comp setMailComposeDelegate:self];
+    if ([MFMailComposeViewController canSendMail])
+    {
+        if(caption) {
+            [comp setSubject:caption];
+        }
+        if(description) {
+            [comp setMessageBody:description isHTML:NO];
+        }
+        if(videoURL.absoluteString.length) {
+            NSData *fileData = [NSData dataWithContentsOfURL:videoURL];
+            NSString *fileName = [@"share" stringByAppendingPathExtension:@"mp4"];
+            [comp addAttachmentData:fileData mimeType:@"video/mp4" fileName:fileName];
+            
+//            [comp addAttachmentData:fileData mimeType:@"video/quicktime" fileName:fileName];
+        }
+        
+        if (comp)
+        {
+            [controller presentViewController:comp animated:YES completion:nil];
+        }
+    }
 }
 
 - (void)associateDelegate:(id<GXShareTaskDelegate>)delegate {

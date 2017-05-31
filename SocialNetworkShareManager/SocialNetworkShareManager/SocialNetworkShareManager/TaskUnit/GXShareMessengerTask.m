@@ -45,7 +45,7 @@
           shareUrl:(NSURL *)shareURL
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller {
-    
+    [FBSDKMessengerSharer shareVideo:[NSData dataWithContentsOfURL:videoURL] withOptions:nil];
 }
 
 - (void)associateDelegate:(id<GXShareTaskDelegate>)delegate {

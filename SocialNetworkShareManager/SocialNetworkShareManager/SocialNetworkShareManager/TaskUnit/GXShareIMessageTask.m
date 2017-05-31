@@ -6,15 +6,15 @@
 //  Copyright © 2017 wyan assert. All rights reserved.
 //
 
-#import "GXShareIMessqgeTask.h"
+#import "GXShareIMessageTask.h"
 #import "GXShareManager.h"
 #import <MessageUI/MessageUI.h>
 
-@interface GXShareIMessqgeTask () <MFMessageComposeViewControllerDelegate>
+@interface GXShareIMessageTask () <MFMessageComposeViewControllerDelegate>
 
 @end
 
-@implementation GXShareIMessqgeTask
+@implementation GXShareIMessageTask
 
 - (instancetype)init {
     if(self = [super init]) {
@@ -55,6 +55,16 @@
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller {
     
+    if([MFMessageComposeViewController canSendText]) {
+        MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
+        messageController.messageComposeDelegate = self;
+        [messageController setBody:description];
+        if([MFMessageComposeViewController canSendAttachments] && videoURL.absoluteString.length) {
+            NSData *imgData = [NSData dataWithContentsOfURL:videoURL];
+            [messageController addAttachmentData:imgData typeIdentifier:@"public.data" filename:@"share.mp4"];
+        }
+        [controller presentViewController:messageController animated:YES completion:nil];
+    }
 }
 
 - (void)associateDelegate:(id<GXShareTaskDelegate>)delegate {

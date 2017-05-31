@@ -15,7 +15,7 @@
 #import "GXShareTwitterTask.h"
 #import "GXShareWhatsAppTask.h"
 #import "GXShareMessengerTask.h"
-#import "GXShareIMessqgeTask.h"
+#import "GXShareIMessageTask.h"
 #import "GXShareEmailTask.h"
 #import "GXShareLineTask.h"
 #import "GXShareCopyLinkTask.h"
@@ -105,7 +105,7 @@ GXShareType SNSTypeyLinkCopy         = @"SNSTypeyLinkCopy";
         } else if ([shareType isEqualToString:SNSTypeWhatsApp]) {
             task = [[GXShareWhatsAppTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeIMessage]) {
-            task = [[GXShareIMessqgeTask alloc] init];
+            task = [[GXShareIMessageTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeEmail]) {
             task = [[GXShareEmailTask alloc] init];
         } else if ([shareType isEqualToString:SNSTypeLine]) {

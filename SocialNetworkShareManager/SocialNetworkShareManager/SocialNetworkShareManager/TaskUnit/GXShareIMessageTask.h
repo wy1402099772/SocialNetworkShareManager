@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "GxShareTask.h"
 
-@interface GXShareIMessqgeTask : GxShareTask
+@interface GXShareIMessageTask : GxShareTask
 
 @end

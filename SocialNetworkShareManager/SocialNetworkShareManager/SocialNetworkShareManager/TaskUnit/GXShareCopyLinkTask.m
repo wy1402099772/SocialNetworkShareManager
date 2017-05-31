@@ -60,6 +60,22 @@
          albumName:(NSString *)albumName
    andAssociatedVC:(UIViewController *)controller {
     
+    if(description) {
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        [pasteboard setString:description];
+        if(_delegate && [_delegate respondsToSelector:@selector(requestShareManagerToShowAlert:message:confirmInfo:cancelInfo:delay:completion:)]) {
+            [_delegate requestShareManagerToShowAlert:shareModel.requestTitleForVideo
+                                              message:shareModel.requestDesc
+                                          confirmInfo:shareModel.confirmStr
+                                           cancelInfo:shareModel.cancelStr
+                                                delay:shareModel.delayInterval
+                                           completion:^(BOOL success) {
+                                               if(success) {
+                                                   
+                                               }
+                                           }];
+        }
+    }
 }
 
 - (void)associateDelegate:(id<GXShareTaskDelegate>)delegate {

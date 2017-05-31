@@ -27,7 +27,7 @@
 		939ADDDF1EC2BB72009EE88C /* GXShareTwitterTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDDE1EC2BB72009EE88C /* GXShareTwitterTask.m */; };
 		939ADDE21EC2BB88009EE88C /* GXShareWhatsAppTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDE11EC2BB88009EE88C /* GXShareWhatsAppTask.m */; };
 		939ADDE51EC2BB95009EE88C /* GXShareMessengerTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDE41EC2BB95009EE88C /* GXShareMessengerTask.m */; };
-		939ADDE81EC2BBB2009EE88C /* GXShareIMessqgeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDE71EC2BBB2009EE88C /* GXShareIMessqgeTask.m */; };
+		939ADDE81EC2BBB2009EE88C /* GXShareIMessageTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDE71EC2BBB2009EE88C /* GXShareIMessageTask.m */; };
 		939ADDEB1EC2BBC0009EE88C /* GXShareEmailTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDEA1EC2BBC0009EE88C /* GXShareEmailTask.m */; };
 		939ADDEE1EC2BBCC009EE88C /* GXShareLineTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDED1EC2BBCC009EE88C /* GXShareLineTask.m */; };
 		939ADDF11EC2BBDA009EE88C /* GXShareCopyLinkTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 939ADDF01EC2BBDA009EE88C /* GXShareCopyLinkTask.m */; };
@@ -78,8 +78,8 @@
 		939ADDE11EC2BB88009EE88C /* GXShareWhatsAppTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXShareWhatsAppTask.m; sourceTree = "<group>"; };
 		939ADDE31EC2BB95009EE88C /* GXShareMessengerTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXShareMessengerTask.h; sourceTree = "<group>"; };
 		939ADDE41EC2BB95009EE88C /* GXShareMessengerTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXShareMessengerTask.m; sourceTree = "<group>"; };
-		939ADDE61EC2BBB2009EE88C /* GXShareIMessqgeTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXShareIMessqgeTask.h; sourceTree = "<group>"; };
-		939ADDE71EC2BBB2009EE88C /* GXShareIMessqgeTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXShareIMessqgeTask.m; sourceTree = "<group>"; };
+		939ADDE61EC2BBB2009EE88C /* GXShareIMessageTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXShareIMessageTask.h; sourceTree = "<group>"; };
+		939ADDE71EC2BBB2009EE88C /* GXShareIMessageTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXShareIMessageTask.m; sourceTree = "<group>"; };
 		939ADDE91EC2BBC0009EE88C /* GXShareEmailTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXShareEmailTask.h; sourceTree = "<group>"; };
 		939ADDEA1EC2BBC0009EE88C /* GXShareEmailTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXShareEmailTask.m; sourceTree = "<group>"; };
 		939ADDEC1EC2BBCC009EE88C /* GXShareLineTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXShareLineTask.h; sourceTree = "<group>"; };
@@ -213,8 +213,8 @@
 				939ADDE11EC2BB88009EE88C /* GXShareWhatsAppTask.m */,
 				939ADDE31EC2BB95009EE88C /* GXShareMessengerTask.h */,
 				939ADDE41EC2BB95009EE88C /* GXShareMessengerTask.m */,
-				939ADDE61EC2BBB2009EE88C /* GXShareIMessqgeTask.h */,
-				939ADDE71EC2BBB2009EE88C /* GXShareIMessqgeTask.m */,
+				939ADDE61EC2BBB2009EE88C /* GXShareIMessageTask.h */,
+				939ADDE71EC2BBB2009EE88C /* GXShareIMessageTask.m */,
 				939ADDE91EC2BBC0009EE88C /* GXShareEmailTask.h */,
 				939ADDEA1EC2BBC0009EE88C /* GXShareEmailTask.m */,
 				939ADDEC1EC2BBCC009EE88C /* GXShareLineTask.h */,
@@ -407,7 +407,7 @@
 				9317A6991EDD86160004539B /* GxShareVideoHelper.m in Sources */,
 				93B84F561ED82A8B006C5C33 /* GxShareTask.m in Sources */,
 				939ADDD91EC2B65D009EE88C /* GXShareFacebookTask.m in Sources */,
-				939ADDE81EC2BBB2009EE88C /* GXShareIMessqgeTask.m in Sources */,
+				939ADDE81EC2BBB2009EE88C /* GXShareIMessageTask.m in Sources */,
 				93A8A7BC1EC343EE0024C694 /* GXShareCellModel.m in Sources */,
 				939ADD951EC1CE08009EE88C /* ViewController.m in Sources */,
 				939ADDE51EC2BB95009EE88C /* GXShareMessengerTask.m in Sources */,
